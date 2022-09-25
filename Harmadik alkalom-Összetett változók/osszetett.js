@@ -29,7 +29,8 @@ var ember = {
         {intezmenyNeve: "ndhjskb",}
     ],
     bemutatozas: function(){
-        return `A nevem ${this.csaladnev} ${this.keresztnev} és a foglalkozásom ${this.foglalkozasas}!`
+     console.log(`A nevem ${this.csaladnev} ${this.keresztnev} 
+                és a foglalkozásom ${this.foglalkozasas}!`);
     }
 };
 /*
