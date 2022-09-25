@@ -1,7 +1,7 @@
 /*------------------------Első feladat-------------------------*/
 var num1 = parseInt(prompt("Kérem adjon meg egy számot")) ;
 
-/*
+
 
 let list = "<ul>";
 
@@ -13,21 +13,21 @@ document.querySelector("#elso_feladat").innerHTML = list;
 
 
 /*------------------------Második feladat-------------------------*/
-var oszthato =  `A ${num1}-nak/nek van osztója!`;
 
 let list2 = "<ul>";
-
 for (let j = 2; j < num1; j++){
-    if (num1%j==0) {
+    if (num1 % j==0) {
         list2 += `<li>${j}</li>`;
-        document.querySelector("#masodik_feladat").innerHTML = oszthato;
+            
     } else {
-        document.querySelector("#masodik_feladat").innerHTML = (`A ${num1}-nak/nek nincs osztója!`);
+        document.querySelector("#masodik_feladat").innerHTML = `<li>${`A ${num1}-nak/nek nincs osztója!`}</li>`;
     }
-}
+    } 
 list2 += "</ul>";
 
 document.querySelector("#masodik_feladat").innerHTML = list2;
+
+
 /*
 
 var oszhato = num1%j==0;
@@ -57,6 +57,7 @@ function action() {
 let isPrime = true;
 
 if (number === 1) {
+    document.querySelector("#harmadik_valasz").innerHTML = false;
     console.log(false);
 }
 
@@ -70,13 +71,16 @@ else if (number > 1) {
     }
 
     if (isPrime) {
+        document.querySelector("#harmadik_valasz").innerHTML = true;
         console.log(true);
     } else {
+        document.querySelector("#harmadik_valasz").innerHTML = false;
         console.log(false);
     }
 }
 
 else {
+    document.querySelector("#harmadik_valasz").innerHTML = false;
     console.log(false);
 }
 }

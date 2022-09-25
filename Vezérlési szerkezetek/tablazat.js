@@ -61,17 +61,14 @@ var emberek = [
     }
     
 ];
-var vezetok = "vezetők";
+
 var table = "<ul>";
 
 for(let i = 0; i < emberek.length; i++){
     table += `<li>${emberek[i]['firstName']} 
                 ${emberek[i]['lastName']} 
-                
+                ${emberek[i]['position']}
             </li>`;
 }
 table += "</ul>";
-
 document.querySelector("#tablazat").innerHTML = table;
-
-
