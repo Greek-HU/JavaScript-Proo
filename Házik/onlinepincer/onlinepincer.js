@@ -32,7 +32,7 @@ console.log("OnlinePIncer");
        ]
        vagyis, mint a sakktábla.
 */
-var list = ["cola", "kave"];
+var list = [];
 /*
     1. [Onlinepincér folytatása] Vegyetek fel egy globális rendelések változót, mely legyen tömb;
         A HTML oldalon a "Rendelek" gomb mellé hozzatok létre egy "Rendeléseim" felíratú gombot is.
@@ -87,46 +87,14 @@ for (let i = 0; i < list.length; i++) { // sorok bejarasa
     gridString += "</div>";
 }
 
-//console.log(gridString);
-
 content.innerHTML += gridString; 
 }
 /*
     2. Írjatok egy osszead függvényt, mely paraméterként megkap egy tömböt, és visszatér a tömb elemeinek összegével.
        (a megoldáshoz használjatok for ciklust)
 */
-/*var rendel = document.querySelector("#rendeles").value;
+var numList = [[11]];
+function getNum() {
 
-        while (rendel != "eleg"){
-
-    list.push(rendel);
     
-}*/
-
-  /*  var list = document.querySelector("#content");
-    
-
-    for (let i = 0; i < list.length; i++) { 
-    
-        console.log("---------End row "+sorIndex+"-----------");
-        
-    }
-    
-    
-    var content = document.querySelector("#content");
-    var gridString = "";
-    
-    for (let i = 0; i < list.length; i++) {
-    
-        gridString += '<div class="row">';
-    
-        for (let j = 0; j < list[i].length; j++) //az oszlopok vagy cellak bejarasa
-            gridString += `<div class="cell">${list[i][j]}</div>`;
-        
-        gridString += "</div>";
-    }
-    
-    //console.log(gridString);
-    
-    content.innerHTML += gridString; 
-}*/
+}
