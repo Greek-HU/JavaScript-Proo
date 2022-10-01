@@ -111,13 +111,3 @@ console.log( "a num valtozo tipusa: " + (typeof num) );
 
 var igaz = true;
 var hamis = false;
-
-
-
-
-
-
-
-
-
-
