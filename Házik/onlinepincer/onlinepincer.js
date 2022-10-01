@@ -83,7 +83,7 @@ content.innerHTML += gridString;
 var numbers = [[3],[2]];
 function getNum() {
     
-    var num = parseInt(document.querySelector("#getNumber").value);
+    var num = new Array (document.querySelector("#getNumber").value);
     
     numbers.push(num);
 }
@@ -111,14 +111,14 @@ function giftNum() {
     4. Írjatok egy korosztály függvényt, mely bemenetként megkapja egy személy életkorát (hogy hány éves), 
        kimenetként pedig visszatér az életkornak megfelelő stringgel.
        (Ezúttal nem if-else, hanem switch-case vezérlési szerkezetet használva.)
-*/
+
 function getAge(){
     
-    return parseInt( document.querySelector('#age').value );
-}
+    var parseInt( document.querySelector('#age').value );
+}*/
 function ageGroup(){
     
-    var age = getAge();
+    var age = parseInt(document.querySelector('#age').value);
 
     switch (age){
 
@@ -161,4 +161,4 @@ function getB() {
     var b = parseInt(document.querySelector("#b_group").value);
 
     numB.push(b);
-}console.log(numA);
+}console.log(numA);/**/
