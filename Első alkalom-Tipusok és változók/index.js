@@ -1,32 +1,67 @@
-console.log("Tipusok és Változók");
+console.log("Tipusok es valtozok");
+
 /*
-    Az adattípusok 2 nagy csoportra osztjuk
+    Az adatípusokat 2 nagy csoportra osztjuk
 
         1. Egyszerű típusok
             - String
             - Number
             - Boolean
+            
         2. Összetett típusok
             - Array - Tömbök
-            - Object - Statikus objektumok - PhP-ban Asszociatív tömb - JS-ben - Json
-            - Function
+            - Object - Statikus objektumok - php-ban Aszociativ tömb - Javascriptben - JSON
+            ~ Function
+*/
 
-let szoveg = "Az én első adatom";
-let Szoveg = "Az én második adatom";
+// Egy soros megjegyzes
+
+/*
+    Ez egy
+    tobb soros
+    komment
+    vagyis megjagyzes
+*/
+
+//*
+
+/*
+    Változók
+
+    String - Szövegtípus
+*/
+
+let szoveg = "Az en elso adatom.";
+let Szoveg = 'Egy "masik" adat.';
+
+
+//*/
+
+/* 
+    - Egy változó neve:
+        - nem tartlamazhat speciális karaktereket
+            - kivétel ez alól a "$" es az "_" jelek
+        - tartalmazhat számot, de nem kezdődhet vele
+
+        - !!! Soha Nem definiálunk ékezetes változó neveket !!!
+
+    !!! FIGYELEM !!!
+    A Javascript kis és nagybetű érzékeny
+
+
+    - Amikor egy változót definilunk, akkor tulajdonképpen lefoglalunk egy memoriacímet a számítógépen, aminek
+    nevet adunk. Ez lesz a változó neve, és azt az adatot, amit erre a memóriacímre írunk, a változó nevén keresztül
+    tudjuk elérni.
+
+*/
 
 var sel = "#content";
 
 document.querySelector(sel).innerHTML = szoveg + " " + Szoveg;
 
-document.querySelector(sel).innerHTML += `
-                                            <br>
-                                                <span style="color: red; bacground-image: url('kep.jpg')">
-                                                    Ez egy piros szöveg
-                                                </span>
-                                        `;
-
 /*
     A stringek Javascriptben többfélék lehetnek:
+
         - "" - kettesidézőjel
         - '' - egyesidézőjel
         - `` - BackTick - Template string
@@ -41,31 +76,48 @@ document.querySelector(sel).innerHTML += `
     </span>
 `;
 
-var a = `"<br>"\"idezet\" az idezetben \n Escape karakter segítségével`; //
+var a = `<br>"idezet" az idezetben \n\t Escape karakter segitsegevel`; //
 
 document.querySelector(sel).innerHTML += a;
+
 
 /*
     Escape karakterek
 
-    /n - New line
-    /r - Carrige return
-    /b - backspace
-    /t - Horizontal Tabulator
-    /v - Vertical Tabulator
+    \n - New line
+    \r - Carriage return
+    \b - backspace
+    \t - Horizontal Tabulator
+    \v - Vertical Tabulator
 */
 
-////////////////Number - Számok////////////
+/*
+    Number - Szamok
+*/
 
-let num = 45; //egész szám
-let dotNum = 12.5; //tizedes szám
+let num = 45; //egesz szam
+let dotNum = 12.5; //tizedes szam - a tizedes jel az a pont
 
-////////////////Typeof - típushatározó/////
+/*
+    typeof - tipushatározó
+*/
 
-console.log( "a num valtozo tipusa: " + (typeof num));
+console.log( "a num valtozo tipusa: " + (typeof num) );
 
-////////////////Boolean - logikai típus////
-    ///- 2 értéket vehet fel: true - igaz, false - hamis
+/*
+    Boolean - logikai tipus
+        - 2 értéket vehet fel: true - igaz, false - hamis
+*/
 
 var igaz = true;
 var hamis = false;
+
+
+
+
+
+
+
+
+
+
