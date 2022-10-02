@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>3. feladat</title>
 </head>
+
 <body>
     <div id="content"></div>
     <script>
@@ -15,16 +17,19 @@
             (Az összeg teszateléséhez használjátok a 2. feladatban megírt függvényt)       
         */
         var szaz = [];
-
-            var szam = parseInt(prompt("Adjon meg egy számot"));
-
-                while (szaz != 100){
-
-            szaz.push(szam);
-            
+        var szam;
+        while (sumNum(szaz) <= 100) {
             szam = parseInt(prompt("Adjon meg még egy számot"));
-                }
-                
+            szaz.push(szam);
+        }
+        function sumNum(nums) {
+            var osszeg = 0;
+            for (let i = 0; i < nums.length; i++) {
+                osszeg += nums[i];
+            }
+            return osszeg;
+        }
     </script>
 </body>
+
 </html>

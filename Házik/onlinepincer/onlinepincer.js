@@ -1,19 +1,5 @@
 console.log("OnlinePIncer");
-
 /*
-    6. Írjatok egy függvényt, mely feltölt egy tömböt sakktábla szerűen. Vagyis, ami előállít egy sakktáblát.
-       Bementi paraméterként megkapja a függvény, hogy a tábla hányszor, hányas legyen, majd előállít egy mátrixot
-       melyben a fehér négyzeteket 0, míg a fekete négyzeteket 1 jelöli. 
-​
-       Tehát, ha a bemeneti paraméter 4, akkor a következő képpen nézzen ki a kigenerált mátrix.
-       [
-         [0, 1, 0, 1],
-         [1, 0, 1, 0],
-         [0, 1, 0, 1],
-         [1, 0, 1, 0]
-       ]
-       vagyis, mint a sakktábla.
-*//*
 var list = [];
 /*
     1. [Onlinepincér folytatása] Vegyetek fel egy globális rendelések változót, mely legyen tömb;
@@ -74,47 +60,37 @@ content.innerHTML += gridString;
 /*
     2. Írjatok egy osszead függvényt, mely paraméterként megkap egy tömböt, és visszatér a tömb elemeinek összegével.
        (a megoldáshoz használjatok for ciklust)
-*/
-var numbers = [[3],[2]];
-function getNum() {
-    var num = new Array (document.querySelector("#getNumber").value);
-
-    numbers.push(num);
-}
-
-function giftNum() {    
-
+*/var numbers = [3,2];
+function pushNum() {
+    numbers.push(parseInt(document.querySelector("#pushNumber").value));
+    var sum = sumNum(numbers);
     var numBox = document.querySelector("#numBox");
     var gridNum = "";
-    
-    for (let i = 1; i < numbers.length; i++) { // sorok bejarasa
-    
-        gridNum += '<div class="row">';
-    
-        for (let j = 0; j < numbers[i].length; j++) //az oszlopok vagy cellak bejarasa
-            gridNum += `<div class="cell">${numbers[0][0]} + ${numbers[i][j]}
-                                         =   
-                                         ${numbers[0][0] + numbers[i][j]}</div>`;
-        
-            gridNum += "</div>";
-    }    
+    gridNum += '<div class="row">';    
+        gridNum += `<div class="cell">${sum}</div>`;
+    gridNum += "</div>";
     numBox.innerHTML += gridNum; 
+}
+
+function sumNum(nums) {    
+    
+    var osszeg = 0;
+    for (let i = 0; i < nums.length; i++) { 
+        osszeg += nums[i];
+    } 
+    return osszeg;
 }
 
 /*
     4. Írjatok egy korosztály függvényt, mely bemenetként megkapja egy személy életkorát (hogy hány éves), 
        kimenetként pedig visszatér az életkornak megfelelő stringgel.
        (Ezúttal nem if-else, hanem switch-case vezérlési szerkezetet használva.)
+*/
 
-function getAge(){
-    
-    var age = parseInt( document.querySelector('#age').value );
-}*/
 function ageGroup(){
     
     var age = parseInt(document.querySelector('#age').value);
-
-    switch (age){
+    switch (true){
 
         case (age <= 1):
             console.log("Csecsemő");
@@ -128,7 +104,7 @@ function ageGroup(){
             console.log("Gyerek");
             break;
 
-        case (age <= 16):
+        case (age <= 17):
             console.log("Serdülő");
             break;
 
@@ -144,15 +120,56 @@ function ageGroup(){
        (A megoldásokhoz szorítkozzatok az eddig tanult vezérlési szerkezetekre, mert most már nem a hozott,
         vagy interneten talált megoldásokra leszek kiváncsi, hanem arra, amit eddig tanultunk.)
 */
-var numA = [];
-var numB = [];
-function getA() {
-    var a = parseInt(document.querySelector("#a_group").value);
-
-    numA.push(a);
+var tombA = [1,3,8,4,6,"a"];
+var tombB = [1,8,5,7,"a","k","l"];
+function otosFeladat() {
+    var o = otos(tombA,tombB);
+        document.querySelector("#otos").innerHTML = o;
 }
-function getB() {
-    var b = parseInt(document.querySelector("#b_group").value);
+    otosFeladat();
+function otos(a,b) {
+    var result = [];
+    for (let i = 0; i < a.length; i++) {
+        for (let j = 0; j < b.length; j++) {
+            if (a[i] == b[j]) {
+                result.push(a[i]);
+            }
+        }        
+    }
+    return result;
+}
+/*
+    6. Írjatok egy függvényt, mely feltölt egy tömböt sakktábla szerűen. Vagyis, ami előállít egy sakktáblát.
+       Bementi paraméterként megkapja a függvény, hogy a tábla hányszor, hányas legyen, majd előállít egy mátrixot
+       melyben a fehér négyzeteket 0, míg a fekete négyzeteket 1 jelöli. 
+​
+       Tehát, ha a bemeneti paraméter 4, akkor a következő képpen nézzen ki a kigenerált mátrix.
+       [
+         [0, 1, 0, 1],
+         [1, 0, 1, 0],
+         [0, 1, 0, 1],
+         [1, 0, 1, 0]
+       ]
+       vagyis, mint a sakktábla.
+*/
 
-    numB.push(b);
-}console.log(numA);/**/
+printSakkMatt(sakkmatt(8));
+
+function sakkmatt(dim){
+    var table = [];
+
+    for (let i = 0; i < dim; i++) {
+        table[i] = [];
+        for (let j = 0; j < dim; j++) {
+            table[i][j] = (i + j) % 2 ? 1 : 0;
+        }
+    }      
+
+    return table;
+}
+
+function printSakkMatt(table){
+    for (let i = 0; i < table.length; i++) {
+        console.log(table[i]);
+    }
+}
