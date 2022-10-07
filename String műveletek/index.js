@@ -99,7 +99,9 @@ console.log(szov.replaceAll("barna", "piros"));
 //      Reguláris kifejezések
 //            -a reguláris kifeezések illeszkedési minték, melyek egy szövegre illeszthetőek.
 //      pl: ilyen illeszkedési minta pl egy datumformatum. /[0-9]{4}--[0-9]{2}--[0-9]{2}/ YYYY-MM-DD
-console.log(szov.replace( /barna/gim, "piros" )); //(i) kis és nagybetüt semmibevesz, (g) globálisan keres
+console.log(szov.replace( /barna/gim, "piros" )); 
+        
+        //(i) kis és nagybetüt semmibevesz, (g) globálisan keres
 
 var szov2 = "Kata alma kompótot főz, és meggylekvért tett a pitébe";
 
