@@ -42,5 +42,5 @@ var idopontok = menetrend.match(/[0-9]{2}:[0-9]{2}/g)
 console.log(idopontok);
 
 var d = "2022.10.05";
-console.log(d.replace);
+console.log(d.replace(".", "-"));
 //var dArray = d.split(".");

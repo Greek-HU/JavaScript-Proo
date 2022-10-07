@@ -19,6 +19,7 @@ console.log("A "+ind+"-as indexen lévőkarakter: "+s[ind]+" és az ASCII ódja 
 //        - A .concat alternatívája a "+" operátor
 
 var ujString = s.concat(" masik", "szoveg");
+console.log(ujString);
 
 
 //    s.repeat(x) X-szer fogja ismételni a String szöveget
