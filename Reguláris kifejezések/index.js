@@ -32,6 +32,9 @@ console.log(d.test("2022-10-05"));
 
         ?=n - minden olyan karakterláncnak megfelel, melyet "n" követ
         ?!n - minden olyan karakterláncnak megfelel, melyet "n" nem követ
+
+        [A-zéáőúűöüóíÉÁŐÚŰÖÜÓÍ] - Az összes Magyar karakter
+
 */
 var s = "Pistike 10 lufijából kidurrant 3, viszont piroskának van még 135 lufija.";
 var szamok = s.match(/[0-9]/g);// vagy pedig - s.match(/[0-9]{1,}/g)
