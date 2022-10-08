@@ -71,7 +71,7 @@ console.log(mondat.split(" ").length + " szo van a mondatban!");
 
 //------------------------------------String alatti striingeket
 
-//      s.slice(satr, end) - visszatér a 2 bemeneti index közti szakasszal.
+//      s.slice(start, end) - visszatér a 2 bemeneti index közti szakasszal.
 //      s.substring(start, end) - visszatér a 2 bemeneti index közti szakasszal.
 //          - mindkét füvény esetében az end paraméter opcionális.
 //            amennyiben nem adjuk meg, úgy a String.length értéket kapja

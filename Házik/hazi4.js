@@ -5,17 +5,18 @@
 ​
     1. Kerjetek be prompt segitsegevel egy nevet Es konzolban jelenitsetek meg ennek a nevnek a monogramjat
        (tehat a kezdobetuit)
-*/
-/*var nev = prompt("Kérem adja meg a nevét:");
 
-var nevArray = nev.split("");
+var nev = prompt("Kérem adja meg a nevét:");
+
+var nevArray = nev.split(" ");
 var vezNev = nevArray[0].charAt(0);
+var kerNev = nevArray[1].charAt(0);
 //var kerNev = nevArray[]
-console.log(vezNev);
+console.log(vezNev, kerNev);
 //2. kerjetek be egy hosszab szoveget, es konzolban irjatok ki a szoveg mondatainak a szamat.
 var szoveg = prompt("Kérnék egy mondatot:");
 
-console.log(szoveg.split(".","!").length + " szo van a mondatban!");*/
+console.log(szoveg.split(".","!").length + " sor van a mondatban!");*/
 /*<script>
 const myText = "This is a paragraph. Is it?";
 const stop = /[.!?]/;
@@ -29,29 +30,30 @@ function fileName(file) {
 console.log(fileName("fájlnév.exe"));
 //4. írjatok egy getMonth("2022-10-6") nevezetű függvényt, mely bemenetként megkap egy datum stringet
 //       YYYY-MM-DD dátimformátumban és kiírja a dátumban szereplő hónapot.
-function getMount(date) {
-    return date.split("-")[1];
-}
-console.log(getMount("2022-10-06"));
 
 function getDatePara(date, parameter) {
-    switch (true) {
-        case year:
+    switch (parameter) {
+        case "year":
         return date.split(".")[0];
 
-        case mounth:
+        case "mounth":
         return date.split(".")[1];
 
-        case day:
+        case "day":
         return date.split(".")[2];
 
         default:
         return ("Nem jó értéket adott meg!");
-        break;
+    
     }
-    return date.split(".")[];
 }
-console.log(getDatePara(""));
+console.log(getDatePara("2022.10.08", "day"));
+
+function getMount(date) {
+    return date.split("-")[1];
+}
+console.log(getMount("2022-10-08"));
+
 //----------------------------------------------Reguláris kifejezéses feladatok-------------------------------
 //re.1. Adott az alábbi string
 
@@ -60,8 +62,7 @@ var cicus = "Cirmi délben eszik majd alszik egy nagyot. Aztán ha felkelt játs
 /*
     Reguláris kifejezés segítségével szedjük ki a "cicus" változó tartalmból az ik-es igéket.
 */
-
-console.log(cicus.match(/ik.$/g));
+console.log(cicus.match(/["ik"?]/));
 /*
 re.2. irjatok regularis kifejezest, mely egy szovegbol kiveszi a datumido karakterlancokat
  pl 2021.09.28 09:59 (UTC)
@@ -75,8 +76,13 @@ console.log(datumIdo, ido);
 re.3. Irjunk regularis kifejezest mely kiveszi egy sztringbol az aritmetikai muveleteket.
  (nem csak a muveletjeleket, hanem a a muveletsort)
 */   
+var osszeadas = ("2+3=5");
 
+console.log(osszeadas.replace(/[0-9]|[+,=]/g, ""));
 /*
 re.4. Írjunk reguláris kifejezést, amely a teljes nevekre illeszkedik 
 (Csaladnev Keresztnev)
 */
+var teljes = "Én Greguss Károly vagyok!";
+
+//console.log(teljes.(/[A-Z]/));

@@ -10,7 +10,7 @@ console.log(d.test("2022-10-05"));
         [0-9] - számok halmaza
         [a-z] - kisbetük halmaza
         [A-Z] - nagybetük halmaza
-        [a-zA-Z] - z összes betü
+        [a-zA-Z] - az összes betü
         [a-zA-Z0-9] - az alfannumerikus karakterek
 
         \d - digit, minden ami szám - [0-9]
