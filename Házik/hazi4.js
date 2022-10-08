@@ -19,8 +19,14 @@ console.log(sentence.length - 1);*/
 function fileName(file) {
     return file.split(".")[1];
 }
-console.log(fileName("fájlnév.exe"));
-
+var fname = (fileName("fájlnév.exe"))
+var harmaskod = (`function fileName(file) {
+    return file.split(".")[1];
+}`)
+function harmadik() {
+    document.getElementById("harmadik").innerHTML = harmaskod;
+}
+console.log(fname);
 //4. írjatok egy getMonth("2022-10-6") nevezetű függvényt, mely bemenetként megkap egy datum stringet
 //       YYYY-MM-DD dátimformátumban és kiírja a dátumban szereplő hónapot.
 
