@@ -65,6 +65,7 @@ document.body.innerText.includes("Itt a keresett szöveg");
 //    s.split(separatorString) - separatorString szerint feldarabolja a Stringünket. 
 //                             - Majd visszatér a stringünk daraboktömbjével
 //                             - Az eredmény már nem tartlamazza azt, ami szerint feldaraboltunk.
+//                             - A split reguláris kifejezések mentén is képes darabolni.
 var mondat = "Jancsi és Juliska elmentek az erdőbe!"
 console.log(mondat.split(" "));
 console.log(mondat.split(" ").length + " szo van a mondatban!");
