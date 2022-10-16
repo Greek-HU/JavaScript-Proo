@@ -65,10 +65,10 @@ var sepStr = kosar.join(", ");
 
 document.getElementById("content").innerHTML = "<ul><li>"+kosar.join("</li><li>")+"</li></ul>";
 
-//console.log("-------ForEach------");
+console.log("-------ForEach------");
 
 kosar.forEach( function (gyumolcs, ind) {
-    //console.log(ind+": "+gyumolcs);
+    console.log(ind+": "+gyumolcs);
 });
 var forEach = function (t, callBackFunction) {
     for ( let i in t)
@@ -88,8 +88,8 @@ var t1 = new Array();
 
 
 Array.prototype.myForEach = function(cbFn){
-    for (let i = 0; i < this.lenght; i++) 
-        cbFn(this[i], i, this)
+    for (let i = 0; i < this.length; i++) 
+        cbFn(this[i], i, this);
     return this;
 }
 
