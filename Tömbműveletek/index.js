@@ -125,7 +125,7 @@ var _KOSAR = kosar.myMap( function(gy, i){
 //console.log(_KOSAR);
 
 //  Array.reduce( function(total, tombKovEleme, kovElemIndex, Array), totálKezdőÉrték)
-
+    //Összeadja a tömb elemeit!
 var numbers = [2, 5, 1];
 
 var sum = numbers.reduce( function(ossz, n, i){
@@ -160,5 +160,6 @@ var kGy = kosar.find( function(gy){
 });
 
 // Röviden ------>>>>> var kgy = kosar.find( gy => gy[0].toUpperCase == "K");
+    //Rákeres az általunk megadott értékün kre!
 
 console.log("A kosár első 'K'-betüs eleme : "+kGy);
