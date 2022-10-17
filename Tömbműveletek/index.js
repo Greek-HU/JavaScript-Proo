@@ -1,6 +1,6 @@
 console.log("Tömbműveletek");
 
-var kosar = ["Alma", "Körte", "Szilva", "Barack"];
+var kosar = ["Alma", "Körte", "Szilva", "Dió", "Mogyoró", "Kökény", "Barack", "Kivi", "Köszméte"];
 //console.log(kosar);
 
 //  Array.push(arr1, arr2, ..., arrN) -  több elem paramétert a tömb végéhez fűzi.
@@ -65,10 +65,10 @@ var sepStr = kosar.join(", ");
 
 document.getElementById("content").innerHTML = "<ul><li>"+kosar.join("</li><li>")+"</li></ul>";
 
-console.log("-------ForEach------");
+//console.log("-------ForEach------");
 
 kosar.forEach( function (gyumolcs, ind) {
-    console.log(ind+": "+gyumolcs);
+    //console.log(ind+": "+gyumolcs);
 });
 var forEach = function (t, callBackFunction) {
     for ( let i in t)
@@ -88,8 +88,8 @@ var t1 = new Array();
 
 
 Array.prototype.myForEach = function(cbFn){
-    for (let i = 0; i < this.length; i++) 
-        cbFn(this[i], i, this);
+    for (let i = 0; i < this.lenght; i++) 
+        cbFn(this[i], i, this)
     return this;
 }
 
@@ -125,7 +125,7 @@ var _KOSAR = kosar.myMap( function(gy, i){
 //console.log(_KOSAR);
 
 //  Array.reduce( function(total, tombKovEleme, kovElemIndex, Array), totálKezdőÉrték)
-    //Összeadja a tömb elemeit!
+
 var numbers = [2, 5, 1];
 
 var sum = numbers.reduce( function(ossz, n, i){
@@ -151,15 +151,74 @@ var nsum = numbers.myReduce(function(ossz, n, i){
 
 console.log(nsum);
 console.log(numbers.reduce((t, n)=>t + n, 0));
-//  Array.find(function(kovElem, kövElemIndexe, Array))
+//  Array.find(function(kovElem, kövElemIndex, Array))
 //      -   A paraméterként átadott callBack function egy Boolean típussal kell visszatérjen
-//          és a find  a tömb azon elemével fog visszatérni, melyre először true lett a callVack dunction
+//          és a find  a tömb azon elemével fog visszatérni, melyre először true lett a callBack dunction
+
+//  Array.lastFind(function(kovElem, kövElemIndex, Array)) - visszatér a függvény megfelelő utószó találattal
 
 var kGy = kosar.find( function(gy){
     return gy[0].toUpperCase() == "K";
 });
 
 // Röviden ------>>>>> var kgy = kosar.find( gy => gy[0].toUpperCase == "K");
-    //Rákeres az általunk megadott értékün kre!
 
 console.log("A kosár első 'K'-betüs eleme : "+kGy);
+
+
+//  Array.filter(function(kovElem, kövElemIndex, Array))
+//      - A paraméterként átadott callBack function egy Boolean típussal kell visszatérjen
+//          és a filter a tömb azon elemeivel fog visszatérni, melyre true lett a callBack dunction
+
+var gyümölcsök = kosar.filter(function(gyumolcs){
+    return gyumolcs.charAt(0).toUpperCase() == "K";
+});
+
+console.log("A 'K' betüs gyümölcsök: "+gyümölcsök.join(', '));
+
+Array.prototype.myFilter = function(cbFn){
+    var tmp = [];
+
+    for ( let i = 0; i < this.length; i++)
+        if  (this[i].charAt(0).toUpperCase() == "K") //Röviden---->>>>>(cbFn(this[i]))  
+            tmp.push(this[i]);
+
+    return tmp;
+}
+console.log(kosar.myFilter());
+
+//  Array.includes(elem) - true értékkel tér vissza, ha a keresett elem része a tömbnek. False-al ha nem
+//                       - Úgy mint az "==" operátor csak primitív típusokra működik
+//                         Ha összetett típust keresünk a keresendőelem "aliasat" az egy referenciáját kell megadni paraméterként.
+//                              tehát: Az == operátor csak primitív típusok összehasonlítására használható!
+
+//  Array.findIndex(function(kovElem, kövElemIndex, Array))
+//      -úgy működik, mint a sima .find,a külömbség hogy nem talált elemmel hanem a talált elem indexével tér vissza
+//          
+console.log(kosar.findIndex(gy => gy[0] == "K"));
+
+//  Array.reverse() - Megfordítja a tömb elemeiek sorrendjét
+for (let i = kosar.length-1; i >= 0; i--) 
+    console.log(kosar[i]);
+//  A.shift - visszatér a tömb elemeivel, és ki is törli azt.
+//        - vagyis ugyanúgy működik, mint a .pop, csak nem hátúlról hanem előlről
+
+//  A.unshift - Elejérefűz egy elemet
+
+//  A.slice(startIndex, endIndex) - visszatér a tömb2 indexe közti résszel
+//      - az endIndex opcionális, amennyiben nem adjuk meg úgy annak default értéke a tömb utolsó indexe
+// példa: Írjunk programot, mely kiszedi a "Szilva" és a "Barack" közti elemeket
+console.log(kosar.slice(kosar.indexOf("Szilva")+1, kosar.indexOf("Barack")));
+
+//  A.splice(startIndex, darabSzam, [új elemek]) 
+//      - startIndextől kitöről darabSzám darabElemet és beszúr zéró vagy több elemet a törölt elem helyére 
+//        és úrészlegesen újra indexelődik
+//      - részhalmazhoz hozzá tudunk adni és el is tudunk venni. Vagyis .pop is és .push is
+// Pl: Kitöröljük a "Szilva elemet a tömbből"
+console.log("-------------Kosar splice előtt-------------");
+console.log(kosar.join(", "));
+//console.log(kosar.splice(kosar.indexOf("Szilva"), 1));
+console.log("-------------Kosar splice után-------------");
+console.log(kosar.join(", "));
+console.log(kosar.splice(kosar.indexOf("Szilva")+1, kosar.indexOf("Barack")));
+console.log(kosar.join(", "));
