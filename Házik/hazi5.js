@@ -3,13 +3,13 @@ import { users } from "./users.js";
 console.log(users);
 //console.log(users.findIndex(users.active == true));
 
-function szures(obj, key, value){
+function szures(users, key, value){
 
     var res = [];
     
-    for (let i = 0; i < obj.length; i++) 
-        if (obj[i][key] == value) 
-            res.push(obj[i]);
+    for (let i = 0; i < users.length; i++) 
+        if (users[i][key] == value) 
+            res.push(users[i]);
     
     return res;
     }
@@ -19,19 +19,18 @@ function szures(obj, key, value){
     console.log(res);
 
 
-function orderList() {
     
-    var content = document.querySelector("#content");
+    var content = document.querySelector("#elso");
     var gridString = "";
     
-    for (let i = 0; i < list.length; i++) { 
+    for (let i = 0; i < users.length; i++) { 
     
         gridString += '<div class="row">';
     
-            gridString += `<div class="cell">${list[i]}</div>`;
+            gridString += `<div class="cell">${users[i]}</div>`;
         
         gridString += "</div>";
     }
     
     content.innerHTML += gridString; 
-    }
+    
