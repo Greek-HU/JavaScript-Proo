@@ -72,4 +72,8 @@ var ember2 = new Ember("Hegyi", "Marton", 25);
 var ember3 = new Ember ("Kovacs", "Livia", 27);
 //console.log(ember3.bemutatkozas());
 
-
+class Melos extends Ember{
+    berszamitas(){
+        
+    }
+}
