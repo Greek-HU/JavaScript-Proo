@@ -1,7 +1,10 @@
 console.log("Tömbműveletek");
+//import { users } from "./users.js";
 
 var kosar = ["Alma", "Körte", "Szilva", "Dió", "Mogyoró", "Kökény", "Barack", "Kivi", "Köszméte"];
 //console.log(kosar);
+var szamok = [12, 34, 54, 612, 1, 3, 25];
+
 
 //  Array.push(arr1, arr2, ..., arrN) -  több elem paramétert a tömb végéhez fűzi.
 var push = kosar.push("Szölő", "Dió");
@@ -75,10 +78,10 @@ var forEach = function (t, callBackFunction) {
         callBackFunction(t[i], i);
     return t;
 }
-console.log("-------My ForEach------");
+//console.log("-------My ForEach------");
 
 forEach(kosar, function(gyumolcs, ind){
-    console.log(ind+": "+gyumolcs);
+//    console.log(ind+": "+gyumolcs);
 });
 /*
     Tömb definíciók!
@@ -93,10 +96,10 @@ Array.prototype.myForEach = function(cbFn){
     return this;
 }
 
-console.log("--------My Prototype ForEach Function---------");
+//console.log("--------My Prototype ForEach Function---------");
 
 kosar.myForEach( function (gyumolcs, ind) {
-    console.log(ind+": "+gyumolcs);
+//    console.log(ind+": "+gyumolcs);
 });
 
 //  Array.map(function(soronKövetkezőElem, soronKövetkezőIndex, Array) ) 
@@ -127,13 +130,13 @@ var _KOSAR = kosar.myMap( function(gy, i){
 //  Array.reduce( function(total, tombKovEleme, kovElemIndex, Array), totálKezdőÉrték)
 
 var numbers = [2, 5, 1];
-
+/*
 var sum = numbers.reduce( function(ossz, n, i){
     return ossz + n;
 }, 0);
 
 console.log(sum);
-
+*/
 Array.prototype.myReduce = function(cbFn, innitTotal){
 
     var total = innitTotal || this[0];
@@ -143,14 +146,14 @@ Array.prototype.myReduce = function(cbFn, innitTotal){
     return total;
 }
 
-console.log("-----------Array.myReduce-----------");
+//console.log("-----------Array.myReduce-----------");
 
 var nsum = numbers.myReduce(function(ossz, n, i){
     return ossz + n;
 }, 0);
 
-console.log(nsum);
-console.log(numbers.reduce((t, n)=>t + n, 0));
+//console.log(nsum);
+//console.log(numbers.reduce((t, n)=>t + n, 0));
 //  Array.find(function(kovElem, kövElemIndex, Array))
 //      -   A paraméterként átadott callBack function egy Boolean típussal kell visszatérjen
 //          és a find  a tömb azon elemével fog visszatérni, melyre először true lett a callBack dunction
@@ -163,7 +166,7 @@ var kGy = kosar.find( function(gy){
 
 // Röviden ------>>>>> var kgy = kosar.find( gy => gy[0].toUpperCase == "K");
 
-console.log("A kosár első 'K'-betüs eleme : "+kGy);
+//console.log("A kosár első 'K'-betüs eleme : "+kGy);
 
 
 //  Array.filter(function(kovElem, kövElemIndex, Array))
@@ -174,7 +177,7 @@ var gyümölcsök = kosar.filter(function(gyumolcs){
     return gyumolcs.charAt(0).toUpperCase() == "K";
 });
 
-console.log("A 'K' betüs gyümölcsök: "+gyümölcsök.join(', '));
+//console.log("A 'K' betüs gyümölcsök: "+gyümölcsök.join(', '));
 
 Array.prototype.myFilter = function(cbFn){
     var tmp = [];
@@ -185,7 +188,7 @@ Array.prototype.myFilter = function(cbFn){
 
     return tmp;
 }
-console.log(kosar.myFilter());
+//console.log(kosar.myFilter());
 
 //  Array.includes(elem) - true értékkel tér vissza, ha a keresett elem része a tömbnek. False-al ha nem
 //                       - Úgy mint az "==" operátor csak primitív típusokra működik
@@ -195,11 +198,11 @@ console.log(kosar.myFilter());
 //  Array.findIndex(function(kovElem, kövElemIndex, Array))
 //      -úgy működik, mint a sima .find,a külömbség hogy nem talált elemmel hanem a talált elem indexével tér vissza
 //          
-console.log(kosar.findIndex(gy => gy[0] == "K"));
+//console.log(kosar.findIndex(gy => gy[0] == "K"));
 
 //  Array.reverse() - Megfordítja a tömb elemeiek sorrendjét
 for (let i = kosar.length-1; i >= 0; i--) 
-    console.log(kosar[i]);
+    //console.log(kosar[i]);
 //  A.shift - visszatér a tömb elemeivel, és ki is törli azt.
 //        - vagyis ugyanúgy működik, mint a .pop, csak nem hátúlról hanem előlről
 
@@ -208,17 +211,64 @@ for (let i = kosar.length-1; i >= 0; i--)
 //  A.slice(startIndex, endIndex) - visszatér a tömb2 indexe közti résszel
 //      - az endIndex opcionális, amennyiben nem adjuk meg úgy annak default értéke a tömb utolsó indexe
 // példa: Írjunk programot, mely kiszedi a "Szilva" és a "Barack" közti elemeket
-console.log(kosar.slice(kosar.indexOf("Szilva")+1, kosar.indexOf("Barack")));
+//console.log(kosar.slice(kosar.indexOf("Szilva")+1, kosar.indexOf("Barack")));
 
 //  A.splice(startIndex, darabSzam, [új elemek]) 
 //      - startIndextől kitöről darabSzám darabElemet és beszúr zéró vagy több elemet a törölt elem helyére 
 //        és úrészlegesen újra indexelődik
 //      - részhalmazhoz hozzá tudunk adni és el is tudunk venni. Vagyis .pop is és .push is
 // Pl: Kitöröljük a "Szilva elemet a tömbből"
-console.log("-------------Kosar splice előtt-------------");
-console.log(kosar.join(", "));
+//console.log("-------------Kosar splice előtt-------------");
+//console.log(kosar.join(", "));
 //console.log(kosar.splice(kosar.indexOf("Szilva"), 1));
-console.log("-------------Kosar splice után-------------");
-console.log(kosar.join(", "));
-console.log(kosar.splice(kosar.indexOf("Szilva")+1, kosar.indexOf("Barack")));
-console.log(kosar.join(", "));
+//console.log("-------------Kosar splice után-------------");
+//console.log(kosar.join(", "));
+//console.log(kosar.splice(kosar.indexOf("Szilva")+1, kosar.indexOf("Barack")));
+//console.log(kosar.join(", "));
+
+//console.log("-------------Az utolsó felhasználó a listában-------------");
+//console.log(users[users.lenght-1]);
+
+//  A.sort(funkction(Array[i], Array[i+1])) - Rendezi a tömböt növekvő sorrendbe,
+//      hogyha paraméter nélkül hívjuk meg
+//      - paraméter nélkül csak a string típusú tömböket rendezi
+//console.log("Szamok rendezés előtt");
+//console.log(szamok);
+szamok.sort(( a, b ) => a - b);
+/*
+    a "sort" lehetséges visszatérési értékei: 0 | 1 | -1
+        - ha a ==b -> 0
+        - ha a < b -> negatív érték
+        - ha a > b -> pozitív érték
+*/
+//console.log("Rendezés utánn!");
+//console.log(szamok);
+//17:50
+
+function bubbleSort(t) {
+    var cserelheto = false;
+    var buborek = 0;
+
+    do {
+        cserelheto = false;
+     for (let i = 0; i < t.lenght-1; i++);
+        if (t[i] - t[i+1] > 0){
+            buborek = t[i];
+            t[i] = t[i+1];
+            t[i+1] = buborek;
+            cserelheto = true;
+        }
+    }while(cserelheto)
+    return t;
+}
+
+users.sort(function(a, b){
+    if (a.lastName+a.firstName < b.lastName+b.firstName) 
+        return -1;
+        if (a.lastName+a.firstName < b.lastName+b.firstName) 
+            return 1;
+
+        return 0
+    
+});
+console.log(users);
