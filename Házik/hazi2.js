@@ -9,7 +9,7 @@
         .
         10 * 8 = 80
        A feladat megoldásához használj egyszerű for ciklust.
-*/
+
 function szorzotabla(szam){
     var res = "";
     
@@ -22,7 +22,7 @@ function szorzotabla(szam){
 for (let i = 1; i <= 10; i++)
     document.querySelector("#content").innerHTML += szorzotabla(i) + "<hr>";
 
-
+*/
 /*
 2. A bekért számnak írjuk ki az osztóit, amiben 1 és önmaga nem szerepel.
    Ha nincs ilyen, akkor írjuk ki, hogy "a [bekért számnak] nincs osztója".
