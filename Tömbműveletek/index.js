@@ -128,7 +128,7 @@ var _KOSAR = kosar.myMap( function(gy, i){
 //console.log(_KOSAR);
 
 //  Array.reduce( function(total, tombKovEleme, kovElemIndex, Array), totálKezdőÉrték)
-
+//      összeadja a tömb értékeit
 var numbers = [2, 5, 1];
 /*
 var sum = numbers.reduce( function(ossz, n, i){
