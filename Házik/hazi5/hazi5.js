@@ -55,7 +55,7 @@ var szamok2 = new szamitasok([32,6]);
 szamok.hasonlit(szamok2);
 console.log(szamok);
 console.log(szamok.atlag());
-document.getElementById("content").innerHTML = "Az összeg: "+szamok.atlag();
+document.getElementById("atlag").innerHTML = "A tömb átlaga: "+szamok.atlag();
 
 /*
     2. Készítsük el az online pincér OOP változatát.
@@ -120,7 +120,6 @@ function tetel(cola, ar) {
         }
     }
 }
-console.log(bemutatkozas());
 /*
         - mert ez közös
         - A koncepció az, hogy annyi példányt tudjunk ebből az objektumból létrehozni, ahány
