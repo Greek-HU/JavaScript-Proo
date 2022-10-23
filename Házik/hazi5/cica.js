@@ -12,31 +12,40 @@ class   cica{
         this.ehes = ehes
     }
     
-    etetes(etel){
+     etetes(){
         let etetes  = document.getElementById("etet").value;
+        console.log("Cirmi most "+etetes+"g-ot evett!");
             
         return etetes;
     }
-    jatek(sulya, fut){
-        var ujsuly = null;
+    jatek(sulya){
+        /*var ujsuly = null;
         var fogy = -1;
         var fut = document.getElementById("futas");
         if (fut.onclick == true){
             sulya + fogy;
         }
         return ujsuly;
-        /*var fut = document.getElementById("futas");
-        if (fut.onclick == true){
+        var sulya = this.sulya;
+        var fut = document.getElementById("futas");
+        if (onclick(fut)){
             this.sulya + 1;
         }
         return sulya; */
+        return{
+            sulya,
+            cicasuly: function(){
+                return "Círmi súlya "+this.sulya;
+            }
+        }
         
     }
 }
+
 console.log(cirmi);
 document.getElementById("etetve").innerHTML = "Cirmi súlya: "+cirmi.sulya
 document.getElementById("ehes").innerHTML = 
-`A felhasználó: ${ this.ehes >= 5 ? "Éhes" : "Nem éhes"}`;
+`A Cirmi ${ this.ehes >= 5 ? "Éhes" : "Nem éhes"}`;
 console.log(cirmi.sulya);
 console.log(cirmi.ehes);
 
