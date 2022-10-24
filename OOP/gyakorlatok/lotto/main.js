@@ -1,0 +1,1 @@
+var l = new Lottery(90, 5);

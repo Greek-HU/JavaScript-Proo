@@ -9,6 +9,7 @@ var ember = {
     }
 }
 console.log(ember.bemutatkozas());
+
 var ember1 = {
     vnev: "Vass",
     knev: "Ede",
@@ -26,7 +27,7 @@ function creatEmber(vnev, knev, kor) {
         }
     }
 }
-
+//----------------------------------------------------------------------------------------------------------------------
 function cEmber(vnev, knev, kor) {
     this.vnev = vnev;
     this.knev = knev;
@@ -36,7 +37,7 @@ function cEmber(vnev, knev, kor) {
         return`A nevem ${this.vnev} ${this.knev} és a korom ${this.kor}!`;
     }
 }
-
+//----------------------------------------------------------------------------------------------------------------------
 function CreateEmber(vnev, knev, kor) {
     this.vnev = vnev;
     this.knev = knev;
@@ -54,7 +55,7 @@ document.getElementById("content").innerHTML = ember.bemutatkozas();
 
 var cEmber2 = new cEmber("Izsak", "Daniel", 38);
 //console.log(cEmber2.bemutatkozas());
-
+//----------------------------------------------------------------------------------------------------------------------
 
 class Ember{
     constructor(vnev, knev, kor){
@@ -71,7 +72,7 @@ var ember2 = new Ember("Hegyi", "Marton", 25);
 
 var ember3 = new Ember ("Kovacs", "Livia", 27);
 //console.log(ember3.bemutatkozas());
-
+//----------------------------------------------------------------------------------------------------------------------
 class Melos extends Ember{
     berszamitas(){
         

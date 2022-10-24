@@ -1,5 +1,5 @@
 console.log("-----------Cica feladat-----------");
-
+/*
 class cica{
     constructor(neve, sulya, ehes){
         this.neve = neve,
@@ -29,7 +29,7 @@ class cica{
         if (document.getElementById("futas").onclick) {
             console.log("Cirmi sulya: "+cirmi.sulya);
             }
-        }*/
+        }
 }
 var cirmi = {
     neve: "Cirmi",
@@ -39,7 +39,7 @@ var cirmi = {
 /*function jatek() {
     console.log("Cirmi sulya: "+cirmi.sulya);
     
-}*/
+}
 console.log("Cirmi most "+this.etel+"g-ot evett!");
     /*var ujsuly = null;
     var fogy = -1;
@@ -59,7 +59,7 @@ console.log("Cirmi most "+this.etel+"g-ot evett!");
         cicasuly: function(){
             return "Círmi súlya "+this.sulya;
         }
-    }*/
+    }
     
 
 
@@ -72,7 +72,7 @@ console.log(cirmi.ehes);
 
             
 
-/*
+
     3. Valósíts meg egy cica osztályt:
         - a következő adatokkal: neve, súlya, és hogy éhes-e (az éhes legyen boolean típusú)
         - Az osztálynak legyen egy eszik metódusa, ami egy float értéket vár (étel mennyisége), 
@@ -83,3 +83,4 @@ console.log(cirmi.ehes);
         súlya csökkenjen 0.1-el, és ha nem volt éhes, akkor éhezzen meg.
         
 */
+

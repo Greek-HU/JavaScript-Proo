@@ -1,0 +1,1 @@
+var cicus = new Cica("Cirmi", 3.5, false);
