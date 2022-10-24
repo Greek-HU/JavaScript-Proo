@@ -1,46 +1,67 @@
 console.log("-----------Cica feladat-----------");
 
-cirmi = {
+class cica{
+    constructor(neve, sulya, ehes){
+        this.neve = neve,
+        this.sulya = sulya,
+        this.ehes = ehes,
+        this.etel = document.getElementById("etel").value;
+    }
+    etetes(suly, etel){
+        if (document.getElementById("etet").onclick) {
+            for (let i = this.sulya; i < 5; i++) {
+            }
+            console.log("Cirmi most g-ot evett!");
+    
+        }            
+        return suly + etel;    }
+    /*etetes(suly, etel){
+        let etell  = document.getElementById("etel").value;
+        if (document.getElementById("etet").onclick) {
+            for (let i = this.sulya; i < 5; i++) {
+            }
+            console.log("Cirmi most g-ot evett!");
+    
+        }            
+        return suly + etel;
+    }
+    jatek(suly, fut){
+        if (document.getElementById("futas").onclick) {
+            console.log("Cirmi sulya: "+cirmi.sulya);
+            }
+        }*/
+}
+var cirmi = {
     neve: "Cirmi",
     sulya: 4,
     ehes: true
 }
-class   cica{
-    constructor(neve, sulya, ehes){
-        this.neve = neve,
-        this.sulya = sulya,
-        this.ehes = ehes
-    }
+/*function jatek() {
+    console.log("Cirmi sulya: "+cirmi.sulya);
     
-     etetes(){
-        let etetes  = document.getElementById("etet").value;
-        console.log("Cirmi most "+etetes+"g-ot evett!");
-            
-        return etetes;
+}*/
+console.log("Cirmi most "+this.etel+"g-ot evett!");
+    /*var ujsuly = null;
+    var fogy = -1;
+    var fut = document.getElementById("futas");
+    if (fut.onclick == true){
+        sulya + fogy;
     }
-    jatek(sulya){
-        /*var ujsuly = null;
-        var fogy = -1;
-        var fut = document.getElementById("futas");
-        if (fut.onclick == true){
-            sulya + fogy;
-        }
-        return ujsuly;
-        var sulya = this.sulya;
-        var fut = document.getElementById("futas");
-        if (onclick(fut)){
-            this.sulya + 1;
-        }
-        return sulya; */
-        return{
-            sulya,
-            cicasuly: function(){
-                return "Círmi súlya "+this.sulya;
-            }
-        }
-        
+    return ujsuly;
+    var sulya = this.sulya;
+    var fut = document.getElementById("futas");
+    if (onclick(fut)){
+        this.sulya + 1;
     }
-}
+    return sulya; 
+    return{
+        sulya,
+        cicasuly: function(){
+            return "Círmi súlya "+this.sulya;
+        }
+    }*/
+    
+
 
 console.log(cirmi);
 document.getElementById("etetve").innerHTML = "Cirmi súlya: "+cirmi.sulya
@@ -48,6 +69,8 @@ document.getElementById("ehes").innerHTML =
 `A Cirmi ${ this.ehes >= 5 ? "Éhes" : "Nem éhes"}`;
 console.log(cirmi.sulya);
 console.log(cirmi.ehes);
+
+            
 
 /*
     3. Valósíts meg egy cica osztályt:
