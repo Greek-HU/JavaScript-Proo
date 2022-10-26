@@ -1,0 +1,9 @@
+*{
+    background-color:rgb(218, 247, 181);
+}
+h1{
+    display:inline-block;
+    border-radius: 5px;
+    border: 1px solid black; 
+    
+}
