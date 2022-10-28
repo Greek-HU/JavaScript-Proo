@@ -9,12 +9,13 @@ class Auto{
         });
     }
     tankol(tankoltLiter){
-        if (this.literAll <= 50) {
+        if (this.literAll < 50) {
                 this.literAll = this.literAll + tankoltLiter;
-            return this.tankolhato = true
+                this.tankolhato = false;
+            return this.tankolhato = true;
         }
-        
-        return false;
+        this.literAll = 50;
+        return this.literAll = false;
     }
     megy(){
         this.literAll = this.literAll - this.atlFogy;
