@@ -109,3 +109,28 @@ var szov2 = "Kata alma kompótot főz, és meggylekvért tett a pitébe";
 
 console.log(szov2.replace(/alma|meggy/gi, "körte"));
 
+var rand = Math.random();
+/*
+    Ahogy látjátok, a rand értéke minden esetben 0 és 1 közt van, ezért annyival kell beszoroznunk,
+    amennyit max kapni szeretnénk. Tehát, ha 1 és 10 közt szeretnénk véletlenszerűen kapni egy 
+    számot, akkor beszorozzuk 10-el.
+*/
+    var veletlenTizAlatt = Math.random() * 10;
+/*
+    Így már a változónk értéke látjátok, hogy közelít ahhoz, amit szeretnénk. Ám még mindeig nem egész számok
+    Ezért fel vagy le kell kerekíteni őket.
+​
+    Ehhez ugyancsak a Math object szolgáltat 3 lehetőséget:
+        - Math.round(szam) - Ez .5 felett felfele, míg .5 alatt lefele kerekít. (teszteld konzolban)
+        - Math.floor(szam) - Ez mindenképpen lefele kerekít, tehát a 4.9 is 4 lesz.
+        - Math.ceil(szam) - Ez mindenképpen felfele kerekít, tehát a 9.1 is 10 lesz.
+    
+    Tehát az előbbi véletlen generátorhoz használjuk kerekítést
+*/
+    var veletlenSzam = Math.ceil(Math.random() * 10);
+/*
+    Most már a veletlenSzam értéke biztos, hogy minden esetben 1 és 10 között lesz (ami a 10-et is tartalmazni fogja)
+    Szóval ahhoz, hogy egy indexet kisorsoljunk egy 90 elemű tömbből, oda csupán annyit kell tennünk, hogy 
+    a ceilt floor metódusra cseréljük, hogy a 0 is játszon, és határértéknek 91-et adjunk, hogy legyen benne a 90 is
+*/
+
