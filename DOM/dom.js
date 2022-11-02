@@ -12,11 +12,20 @@ p.style.color = "red";
 p.style.backgroundColor = "pink"; //p.style.["background-color"]
 p.style.padding = "5px";
 
+const myCssClass = {
+    "background-color": "rgb(71, 71, 245)",
+            "color": "#fff",
+            "padding": "5px"
+}
 
  // document.creatElement(htmlTagName) -Létrhoz a memóriában amit később hozzáadaehozza a memóriában a htmlTagName-nek mmegfelelő JS htmlElementet
 
 
 var span = document.createElement("span");
+Object.assign(span.style, {
+    "text-decoration": "underline"
+    },
+    myCssClass);
 
 // creatTextNode(szoveg) -Létrehoz egy textNode-ot a memóriában, 
 //                        amit később hozzáadhatunk egy htmlElement-hez

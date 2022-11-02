@@ -5,11 +5,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bevásárlólista</title>
+    <style>
+        .athuzva{
+            text-decoration: line-through;
+        }
+        .kijelolt{
+            background-color: rgb(71, 71, 245);
+            color: #fff;
+        }
+    </style>
 </head>
 <body>
     <h1>Bevásárlólista</h1>
     <input type="text" name="listaelem" id="">
-    <br><button id="hozzaad">Hozzáad</button>
+    <button id="hozzaad">Hozzáad</button>
+    <button id="torles">Töröl</button>
+
     <div id="content"></div>
 
     <script src="index.js"></script>
