@@ -1,13 +1,15 @@
 console.log("Lista");
 
 var $s = s => document.querySelector(s);
-var $c = t => document.createElement(t);
+var $c = c => document.createElement(c);
 
 const CONTENT = $s("#content");
 
 const UL = $c("ul");
 
 CONTENT.appendChild(UL);
+
+//$s('#hozzaad').addEventListener("click", function())
 
 $s('input[name="listaelem"]').addEventListener("keypress", function(event){
     //console.dir(event);
