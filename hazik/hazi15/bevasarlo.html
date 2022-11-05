@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="box.js"></script>
     <title>Bevásárló-lista</title>
+    <script src="i.js"></script>
     <style>
         body{
             background-color: rgb(86, 92, 71);
@@ -16,19 +16,25 @@
             height: 150px;
             position: relative;
         }
+        .jobbra{
+            position: relative;
+            margin-left: 15px;
+        }
         
     </style>
 </head>
 <body>
     <h1>Bevásárlólista</h1>
 
-    <input type="text" name="listaelem" ><br>
+    <input type="text" name="listaelem" >
+    <br>
     <button id="hozzaad">Hozzáad</button>    
     
     <div id="content"></div>
     <br>
     <div id="mozgo"></div>
-            
-
+    <script src="bevasarlo.js"></script>
+    <script src="element.js"></script>
+    <script src="box.js"></script>
 </body>
 </html>

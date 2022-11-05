@@ -13,9 +13,9 @@ box1.onclick = function(event) {
     console.log(this);
 }
 
-/*
-    HTMLElement.addEventListener(esemenyNeve, function)
-*/
+
+   // HTMLElement.addEventListener(esemenyNeve, function)
+
 
 box1.addEventListener("click", function(event) {
     //console.dir(this);

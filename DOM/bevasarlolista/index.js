@@ -12,7 +12,7 @@ CONTENT.appendChild(UL);
 //$s('#hozzaad').addEventListener("click", function())
 
 $s('input[name="listaelem"]').addEventListener("keypress", function(event){
-    //console.dir(event);
+    console.dir(event);
     if (event.key == "Enter")
     createListElement();
 });
