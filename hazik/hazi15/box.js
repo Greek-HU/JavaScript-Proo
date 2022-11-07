@@ -18,4 +18,3 @@ window.addEventListener("keyup", (event) => {
             mbox.style.top = parseInt(mbox.style.top) + mozdul + `px`; break; 
       }
  });
-console.dir(mbox.style);

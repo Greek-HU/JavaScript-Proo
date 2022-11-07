@@ -1,5 +1,5 @@
 console.log("Elements");
 
-/*var element = new List(
-    elemek= []
-    );*/
+const item = new LIST(
+    ujElemText= ["Liszt"]
+    );
