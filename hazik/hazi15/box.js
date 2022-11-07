@@ -1,24 +1,21 @@
 console.log("box");
-$s = s => document.querySelector(s);
-var mozgoDoboz = $s("#mozgo");
-
-mozgoDoboz.onclick = function(event){
-    console.log("Nem cseszted el");
-    console.dir(mozgoDoboz);
-    //this.classList.toggle("jobbra");
-
-}
-/*$s("#mozgo").addEventListener("keypress", function(event){
-    console.log("Rajta vagy");
-    if(event.key == "Enter" ){         
-        mozgoDoboz.style.marginLeft="15px";
-
-    }
-        
-})*/
-$s('#mozgo').addEventListener("keypress", function(event){
-    console.log("negyed siker");
-    if (event.key == "Enter"){
-        console.log("Fél siker");
-    }
+var mbox = document.querySelector("#mozgo");
+var mozdul = 15;
+window.addEventListener('load', () => {
+    mbox.style.position = 'absolute';
+    mbox.style.left = "850px"; 
+    mbox.style.top = "250px";
 });
+window.addEventListener("keyup", (event) => {
+    switch (event.key) {
+        case 'ArrowLeft': 
+            mbox.style.left = parseInt(mbox.style.left) - mozdul + `px`; break; 
+        case 'ArrowUp': 
+            mbox.style.top = parseInt(mbox.style.top) - mozdul + `px`; break; 
+        case 'ArrowRight': 
+            mbox.style.left = parseInt(mbox.style.left) + mozdul + `px`; break; 
+        case 'ArrowDown':
+            mbox.style.top = parseInt(mbox.style.top) + mozdul + `px`; break; 
+      }
+ });
+console.dir(mbox.style);

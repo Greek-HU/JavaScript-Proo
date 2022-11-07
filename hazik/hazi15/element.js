@@ -1,5 +1,5 @@
 console.log("Elements");
 
-var element = new List(
+/*var element = new List(
     elemek= []
-    );
+    );*/
