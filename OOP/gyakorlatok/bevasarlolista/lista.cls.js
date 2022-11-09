@@ -1,18 +1,29 @@
 class Lista{
-    constructor(sel, list = []){
+    constructor(sel, title = "Lista", list = []){
         this.parentElement = document.querySelector(sel);
+        this.title = title;
 
         this.render();
+        if (list.length > 0)
+            this.val = list;
+
     }
 
     build(){
         const D = document;
         const _this = this;
+
         this.ct = D.createElement("div");
         this.ct.classList.add("listPanel");
 
         this.cpanel = D.createElement("div");
         this.cpanel.classList.add("listCPanel");
+        
+        this.title = D.createElement("div");
+        this.title.classList.add("listTitle");
+        var listTitle = D.querySelector(`input[name="lT"]`).value.trim();
+            this.title.innerText = listTitle;
+        
 
         this.button = D.createElement("button");
         this.button.innerText = "+";
@@ -24,16 +35,16 @@ class Lista{
         this.input = D.createElement("input");
         this.input.type = "text";
         
-        this.input = D.addEventListener("keypress", function(event){
+        this.input.addEventListener("keypress", function(event){
             if(event.key == "Enter")
             _this.#addEvent();
         });
 
         this.list = D.createElement("ul");
-
         this.cpanel.appendChild(this.input);
         this.cpanel.appendChild(this.button);
 
+        this.ct.appendChild(this.title);
         this.ct.appendChild(this.cpanel);
         this.ct.appendChild(this.list);
     }

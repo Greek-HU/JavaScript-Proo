@@ -80,3 +80,11 @@
     float: right;
     cursor: pointer;
 }
+.listPanel .listTitle{
+    
+    background-color: #e1a23b;
+    padding: 10px;
+    margin: -10px -10px 10px -10px;
+    border-radius: 3px 3px 0 0;
+    color: #fff;
+}
