@@ -56,20 +56,24 @@ class Lista extends SEventManager{
         const _this = this;
 
         this.getECt(".delList").addEventListener("click", function(){
-           _this.remove();
+          _this.remove();
         });
         this.cpanel = this.getECt(".listCPanel");
         this.getECt(".listCPanel button").addEventListener("click", function(){
             _this.#addEvent();
         });
-        this.input = this.getECt(".listCPanel input").addEventListener("keypress", function(event){
+
+        this.input = this.getECt(".listCPanel input");
+        
+        this.input.addEventListener("keypress", function(event){
             if(event.key == "Enter")
             _this.#addEvent();
         });
+
         this.list = this.getECt(".listContent ul");
     }
     #addEvent(){ // # "operátorral" létrehozott függvény az osztály privát függvénye lesz
-        this.addToList(this.getECt(".listCPanel input").value.trim());
+        this.addToList(this.input.value.trim());
         this.input.value = "";
     }
     remove(){
