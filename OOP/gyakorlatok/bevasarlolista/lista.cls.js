@@ -1,56 +1,80 @@
-class Lista{
+class SEventManager{
+    constructor(){
+        this.events = {};
+    }
+    on(eventName, handler){
+        if (this.events[eventName] == undefined)
+            this.events[eventName] = [];
+
+        this.events[eventName].push(handler);
+    }
+    un(eventName, refHandler){
+        if (this.events[eventName] != undefined){
+            let ind = this.events[eventName].indexOf(refHandler);
+        if(ind >= 0)
+            this.events[eventName].splice(ind, 1);
+        }
+    }
+    trigger(eventName){
+        if (this.event[eventName] != undefined)
+        for(let eventFunction of this.events[eventName])
+            eventFunction.apply(this);
+    }
+}
+class Lista extends SEventManager{
+    static tpl(title){
+        return `
+        <div class="listPanel">
+            <div class="listTitle">
+                <span>${title}</span><span class="delList">X</span>
+            </div>
+            <div class="listContent">
+                <div class="listCPanel">
+                    <input type="text"><button>+</button>
+                </div>
+                <ul></ul>
+            </div>
+        </div>`;
+    }
     constructor(sel, title = "Lista", list = []){
+        super();
         this.parentElement = document.querySelector(sel);
         this.title = title;
 
         this.render();
-        if (list.length > 0)
-            this.val = list;
+        
+        this.val = list;
+         
 
+    }
+    getECt(s){ //get evalCt
+        return this.evalCt.querySelector(s);
     }
 
     build(){
         const D = document;
         const _this = this;
 
-        this.ct = D.createElement("div");
-        this.ct.classList.add("listPanel");
-
-        this.cpanel = D.createElement("div");
-        this.cpanel.classList.add("listCPanel");
-        
-        this.title = D.createElement("div");
-        this.title.classList.add("listTitle");
-        var listTitle = D.querySelector(`input[name="lT"]`).value.trim();
-            this.title.innerText = listTitle;
-        
-
-        this.button = D.createElement("button");
-        this.button.innerText = "+";
-
-        this.button.addEventListener("click", function(){
+        this.getECt(".delList").addEventListener("click", function(){
+           _this.remove();
+        });
+        this.cpanel = this.getECt(".listCPanel");
+        this.getECt(".listCPanel button").addEventListener("click", function(){
             _this.#addEvent();
         });
-
-        this.input = D.createElement("input");
-        this.input.type = "text";
-        
-        this.input.addEventListener("keypress", function(event){
+        this.input = this.getECt(".listCPanel input").addEventListener("keypress", function(event){
             if(event.key == "Enter")
             _this.#addEvent();
         });
-
-        this.list = D.createElement("ul");
-        this.cpanel.appendChild(this.input);
-        this.cpanel.appendChild(this.button);
-
-        this.ct.appendChild(this.title);
-        this.ct.appendChild(this.cpanel);
-        this.ct.appendChild(this.list);
+        this.list = this.getECt(".listContent ul");
     }
     #addEvent(){ // # "operátorral" létrehozott függvény az osztály privát függvénye lesz
-        this.addToList(this.input.value.trim());
+        this.addToList(this.getECt(".listCPanel input").value.trim());
         this.input.value = "";
+    }
+    remove(){
+        this.ct.remove();
+        this.trigger("remove");
     }
     addToList(text, active = true){
         const D = document;
@@ -82,15 +106,26 @@ class Lista{
         return false;
     }
     render(){
+        this.evalCt = document.createElement("div");
+        this.evalCt.innerHTML = Lista.tpl(this.title);
+        this.ct = this.evalCt.querySelector(".listPanel"); //vagy .firstElementChild
+
         this.build();
 
         this.parentElement.appendChild(this.ct);
     }
-    set val(list){
-        for (let i = 0; i < list.length; i++) {
-            const element = list[i];
-            
+    clear(){
+        while (this.list.firstElementChild) {
+            this.list.firstElementChild.remove();
         }
+    }
+    set val(list){
+        if (Array.isArray(list))
+        this.clear();
+        for (const li of list)
+            if (li.text)
+        this.addToList(li.text, li.active);
+        else this.addToList(li, true);
     }
     get val(){
         var t = [];
@@ -101,5 +136,52 @@ class Lista{
                 })
             })
             return t;
+    }
+}
+class ListGroupManager{
+    constructor(renderSelector, groupName = "listak"){
+        this.groupName = groupName;
+        this.group = []; // Ez tartalmazza a listákat
+        this.renderSelector = renderSelector; //ide fognak betöltődni a listák
+    }
+    newList(title){ //a newList a method/metódus
+        const LIST = new Lista(this.renderSelector, title);
+        const _this = this;
+        this.group.push(LIST);
+        LIST.index = this.group.length-1;
+        LIST.on("remove", function(){
+            _this.group.splice(this.index, 1);
+        });
+        /*
+        this.group[this.group.length-1].index = this.group.length-1;
+
+        var _this = this;
+
+        this.group[this.group.length-1].on("remove", function(){
+            _this.group.splice(this.index, 1);
+        });*/
+    }
+    save(){
+        window.localStorage.setItem(this.groupName, JSON.stringify(this.val));
+    }
+    restore(){
+        const _this = this;
+        if (localStorage[this.groupName])
+            JSON.parse(localStorage[this.groupName]).forEach( l => {
+                _this.group.push(
+                    new Lista(_this.renderSelector, l.title, l.items)
+                );
+            });
+    }
+    get val(){
+        var tmp = [];
+        this.group.forEach(lo => {
+            tmp.push({
+                title: lo.title,
+                items: lo.val
+            });
+        });
+
+        return tmp;
     }
 }

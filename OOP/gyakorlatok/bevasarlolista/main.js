@@ -1,28 +1,13 @@
-var listak = [];
-$P.qS("#new-list").onclick = function(){
-    listak.push(new Lista("#content"));
+const D = document;
+const LGP = new ListGroupManager("#content", "listaim");
+
+LGP.restore();
+
+D.querySelector("#new-list").onclick = function(){
+    LGP.newList(
+        D.querySelector("#list-title").value.trim()
+    );
 }
-
-class Suti{
-    #v = [];
-    constructor(){
-        //this.v = "";
-    }
-    /** 
-    * @param {string} v 
-    */
-    
-    set val(v){
-        //this.v += "; "+v;
-        this.#v.push(v);
-    }
-
-    get val(){
-        //return this.v;
-        return this.#v.join("; ");
-    }
-}
-
-var s = new Suti() ;
-
-s.val
+window.addEventListener('beforeunload', function (e) {
+    LGP.save();
+});

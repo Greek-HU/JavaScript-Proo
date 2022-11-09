@@ -17,7 +17,7 @@
     font-family: 'Courier New', Courier, monospace;
 }
 
-.cpanel button {
+.cpanel button, .cpanel input[type="file"]  {
     background-color: #365284;
     border: none;
     border-radius: 3px;
@@ -31,12 +31,23 @@
     background-color: #456fb6;
 }
 
+.cpanel button.hard{
+    
+    background-color: #8e142a;
+}
+
+.cpanel button.hard:hover{
+    
+    background-color: #a7485a;
+}
+
 .cpanel input[type=text] {
 
     padding: 10px;
     border-radius: 3px;
     border: 0px;
     margin-right: 10px;
+    outline: none;
 }
 
 .vlsep {
