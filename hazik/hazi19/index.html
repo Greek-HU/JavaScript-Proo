@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Greguss Házi</title>
+    <style>
+        #sel{
+            margin: 10px;
+        }
+        button{
+            margin: 5px 0 5px 0;
+        }
+        .row{
+            display: flex;
+        }
+        .col{
+            padding: 5px;
+            border: 1px solid black;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <h1>Felhasználók</h1>
+        <div id="content">
+            <div id="sel">
+                <select name="" id="selUser">
+                    <option value=" " id="selOpt"> </option>
+                </select>
+            </div>
+            
+            <button id="posBtn">Postok</button>
+
+
+            <div id="users"></div>
+            <button id="loadUsers">Betölt</button>
+
+            <div id="posts"></div>
+            <button id="loadPosts">Betölt</button>
+        </div>
+
+
+    <script src="ajax.js"></script>
+    <script src="lists.js"></script>
+</body>
+</html>
