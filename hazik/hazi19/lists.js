@@ -14,7 +14,7 @@ document.querySelector("#loadUsers").onclick = function(){
     let u = document.querySelector("#users");
     u.textContent = userTableTPL(user);
 });*/
-document.getElementById("selUser").addEventListener("change", (event) =>{
+document.getElementById("posBtn").addEventListener("click", () =>{
     request("https://jsonplaceholder.typicode.com/users", function(res){
         let users = JSON.parse(res);
         
@@ -27,9 +27,9 @@ document.getElementById("selUser").addEventListener("change", (event) =>{
 })/**/
 
 document.querySelector("#loadPosts").onclick = function(){
-    request("https://jsonplaceholder.typicode.com/users", function(res){ 
-        let users = JSON.parse(res);
-            for(let user of users)
+    //request("https://jsonplaceholder.typicode.com/users", function(res){ 
+        //let users = JSON.parse(res);
+            //for(let user of users)
                 request("https://jsonplaceholder.typicode.com/posts", function(pos){
                         let posts = JSON.parse(pos);
                         let content = document.querySelector("#posts");
@@ -38,5 +38,5 @@ document.querySelector("#loadPosts").onclick = function(){
                         
                             content.innerHTML += postsTableTPL(post);
                 })
-    })
-}
+    }//)
+//}
