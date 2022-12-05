@@ -94,32 +94,93 @@ itallap = {
         mennyiseg: "3 dl"
     }
 }
-class rendeles {
-    /*constructor(cola, limonade, kv, sor, roze){
-        this.cola = cola,
-        this.limonade = limonade,
-        this.kv = kv,
-        this.sor = sor,
-        this.roze = roze
-    }*/
-    constructor(itallap){
+class Pincer {
+    
+    constructor(){
         this.itallap = itallap,
-        this.tetel = null
+        this.osszeg = 0;
+        this.lista = [];
     }
+    
+    tetel(rendeles){
+        let tetelformaz = rendeles.normalize("NFD").replace(/([\u0300-\u036f]|[^0-9a-zA-Z])/g, '');
+        for (const key in this.itallap) 
+            if (key == tetelformaz.toLowerCase()) {
+                this.lista.push(key)
+                return "A rendelést felvettük!";       
+            } else {
+                return "Eza tétel elfogyott. Kérem válasszon mást."
+            }
+    }
+
     rendelesOszsege(){
-
-    }
-
-}   
-var asztal = new rendeles(itallap);
-function tetel(cola, ar) {
-    return {
-        cola, ar,
-        bemutatkozas: function(){
-            return ""+this.text+"";
+        for (let i = 0; i < lista.length; i++) {
+            const ital = this.lista[i];
+            for (const kex in this.itallap[ital]){
+                if (key == "ar"){
+                    this.osszeg += this.itallap[ital][key];
+                }
+            }
         }
+        return `rendelés összege: ${this.osszeg}+ Ft`;
     }
+    szamla(){
+        let tabla = `<table class="tabla">`;
+        tabla += `<thead> <tr>
+            <th> Termék neve: </th>
+            <th> Mennyisége: </th>
+            <th> Ára: </th>
+            </tr> </thead>
+            <tbody>`
+        for (let i = 0; i <= this.rendeltDolgok.length; i++) {
+            let ital = this.rendeltDolgok[i]
+            tabla += `<tr>`;
+            for (const key in this.itallap[ital]) {
+
+                switch (key) {
+                    case ("name"):
+                        tabla += `<td>${this.itallap[ital][key]}</td>`
+                        break;
+                    case ("mennyiseg"):
+                        tabla += `<td>${this.itallap[ital][key]}</td>`
+                        break;
+                    case ("ar"):
+                        tabla += `<td>${this.itallap[ital][key]}</td>`
+                        break;
+                    default:
+                        break;
+                }
+
+            }
+            tabla += `</tr>`;
+        }
+        tabla += `</tr></tbody> </table>`;
+        document.querySelector("#content").innerHTML = tabla;
+    
+    }
+}   
+var asztal1 = new Pincer();
+
+var proba = {
+    limonade: {
+        name: "Limonádé",
+        text: "frissen facsart citromot adunk hozza",
+        ar: 700,
+        mennyiseg: "5 dl"
+    },
+    kave: {
+        name: "kávé",
+        text: "feketén vagy tejjel?",
+        ar: 300,
+        mennyiseg: "3 dl"
+    }
+};
+
+for (let [key, value] of Object.entries(proba.kave)) {
+    if (key == "ar")
+        console.log(`${key} : ${value}`);
 }
+
 /*
         - mert ez közös
         - A koncepció az, hogy annyi példányt tudjunk ebből az objektumból létrehozni, ahány

@@ -110,7 +110,7 @@ var KOSAR = kosar.map( function(gy, i){
     return gy.toUpperCase();
 });
 
-//console.log(KOSAR);
+console.log(KOSAR);
 
 Array.prototype.myMap = function(cbFn){
     var tmp = [];
@@ -163,6 +163,7 @@ var nsum = numbers.myReduce(function(ossz, n, i){
 var kGy = kosar.find( function(gy){
     return gy[0].toUpperCase() == "K";
 });
+console.log(kGy);
 
 // Röviden ------>>>>> var kgy = kosar.find( gy => gy[0].toUpperCase == "K");
 

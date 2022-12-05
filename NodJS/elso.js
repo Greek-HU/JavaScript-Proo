@@ -1,0 +1,1 @@
+console.log("Eza  szöveg NodJS környezetben fut");

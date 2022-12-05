@@ -22,28 +22,28 @@ console.log("Ciklusok.js");
     i++ vagy i = i + 1
 */
 
-for (let i = 1; i <= 10; i++){
+for (let i = 1; i <= 10; i++) {
     console.log("ciklusban: " + i);
 }
 
 var gyumolcskosar = ["alma", "korte", "szilva", "barack"];
 
-var lista = "<ul>";
+var divsta = "<ul>";
 
-for (let i = 0; i < gyumolcskosar.length; i++){
+for (let i = 0; i < gyumolcskosar.length; i++) {
 
-    lista += `<li>${gyumolcskosar[i]}</li>`;
+    divsta += `<div>${gyumolcskosar[i]}</div>`;
 }
 
-lista += "</ul><hr>";
+divsta += "</ul><hr>";
 
-document.querySelector("#content").innerHTML = lista;
+document.querySelector("#content").innerHTML = divsta;
 
 //jelenitsuk meg paros
 
 console.log("--------paros szamok--------");
 
-for (let i = 2; i <= 28; i = i+2)
+for (let i = 2; i <= 28; i = i + 2)
     console.log(i);
 
 // FOR IN
@@ -62,19 +62,20 @@ for (let gyumolcs of gyumolcskosar)
 
 
 var ember = {
-    firstName: "Lakatos",
-    lastName: "Nóémi",
-    position: "vezető",
-    job: "Fazekas",
-    age: 32
-};
+        firstName: "Lakatos",
+        lastName: "Virág",
+        position: "vezető",
+        job: "Fazekas",
+        age: 32
+    };
 
 // FOR IN OBJECT
 
 console.log("-----------FOR IN ember----------");
 
 for (const key in ember)
-    console.log(key + ": "+ember[key]);
+
+    console.log(key + ": " + ember[key]);
 
 // FOR OF OBJECT
 
@@ -96,7 +97,7 @@ for (let property of ember)
 
 /*
     példa: Addig olvsunk be elemeket es tegyuk a kosarba, amíg azt nem "mondjuk" hogy eleg
-*/
+*/ 
 
 var kosar = [];
 
@@ -104,7 +105,7 @@ var kosar = [];
 
 /*
 do {
-    
+
     kosar.push( prompt("tegy valamit a kosarba") );
 
 } while ( kosar[kosar.length-1] != "eleg" );
@@ -114,13 +115,14 @@ kosar.pop();
 
 //megoldas: elől tesztelő ciklussal (while)
 
-var kosar2 = [];
+/*var kosar2 = [];
 
-var zoldseg = prompt("Tegy valamit a kosarba");
+var zoldseg = prompt("Tegy valamit a kosarba vagy mond hogy 'elég'");
 
-while (zoldseg != "eleg"){
+while (zoldseg != "elég"){
 
     kosar2.push(zoldseg);
     zoldseg = prompt("Tegy valamit a kosarba");
 }
-
+console.log(kosar2);
+*/

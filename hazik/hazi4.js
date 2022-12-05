@@ -71,7 +71,7 @@ console.log(getMount("2022-10-08"));*/
 //----------------------------------------------Reguláris kifejezéses feladatok-------------------------------
 //re.1. Adott az alábbi string
 
-var cicus = "Cirmi délben eszik majd alszik egy nagyot. Aztán ha felkelt játszik egyet.";
+var cicus = "Cirmi délben eszik majd alszik egy nagyot. Aztán ha felkelt játszik egyet. És ha esik, Ázik";
 
 /*
     Reguláris kifejezés segítségével szedjük ki a "cicus" változó tartalmból az ik-es igéket.

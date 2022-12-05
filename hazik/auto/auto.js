@@ -28,6 +28,7 @@ class Auto{
             alert("Szervizelni kell a kocsit!")
         } 
         else {
+            
             this.literAll = this.literAll - this.atlFogy;
             this.tankolhato = true;
             this.megtettKm = this.megtettKm + 100;
