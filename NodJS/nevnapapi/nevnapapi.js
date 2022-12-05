@@ -7,13 +7,13 @@ function getNameDays(date){
     let day = date.getDate();
     return nameDays[month][day];
 }
-
+//házi  /nev/Jakab - visszaadja azon dátumot amikor a megadott névnap van
 http.createServer(function(re, res){
     const reArray = re.url.split('/').splice(1);
 
 
     switch(true){
-        case re.method == "GET" && re.url == "/nevnap":
+        case re.method == "GET" && re.url == "/nevnap": //A mai névnapot adja vissza
 
             fs.readFile(__dirname + "/nevnapok.json", function(err, resText){
                 nameDays = JSON.parse(resText);
@@ -23,7 +23,7 @@ http.createServer(function(re, res){
                 res.end(); 
             });
             break;
-        case re.method == "GET" && reArray[0] == "datum":
+        case re.method == "GET" && reArray[0] == "datum": //Dátum szerinnt adja vissza a névnapot
             fs.readFile(__dirname + "/nevnapok.json", function(err, resText){
                 nameDays = JSON.parse(resText);
                     
