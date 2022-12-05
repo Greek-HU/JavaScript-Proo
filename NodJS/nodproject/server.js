@@ -1,10 +1,23 @@
 const http = require('http');
 const fs = require('fs'); //file system
+const path = require('path');
+//const { type } = require('os');
 const MIME = {
     js: "text/javascript",
     json: "application/json",
     html: "text/html",
-    css: "text/css"
+    css: "text/css",
+    jpg: "image/jpeg",
+    jpeg: "image/jpeg",
+    png: "image/png",
+    gif: "image/gif",
+    svg: "image/svg+xml",
+    csv: "text/csv",
+    txt: "text/plain",
+    ico: "image/x-icon",
+    type: function(ext){
+        return MIME[ext] != undefined ? MIME[ext] : MIME.txt;
+    }
 }
 http.createServer((request, response)=>{
     switch(true){
@@ -15,9 +28,20 @@ http.createServer((request, response)=>{
                 response.end();
             });
             break;
-            default:
-                response.writeHead(200, {'Content-type':'text/html; charset=utf8'});
-                response.write("A kért oldal nem található");
-                response.end();
+
+        default:
+            let ext = path.extname(request.url).slice(1);
+            let mimetype = MIME.type(ext);
+            fs.readFile(path.join(__dirname, "public", request.url), function(err, fileContent){
+                if (err){
+                    response.writeHead(200, {'Content-type': MIME.type("txt")});
+                    response.write("A kért oldal nem található");
+                    response.end();
+                }else{
+                    response.writeHead(200, {'Content-type': mimetype });
+                    response.write(fileContent);
+                    response.end();
+                }
+            })
     }
 }).listen(3000);
