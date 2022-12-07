@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="style/logo.png" type="image/png">
+    
+    <link rel="stylesheet" href="style/style.css">
+    
+    <title>barkács</title>
+    
+</head>
+
+<body>
+    <div id="page-header">
+        <div id="page-logo"><img src="style/logo.png"><span>arkácsbolt</span></div>
+    </div>
+    <div class="cpanel">
+
+        <button id="get-products">Betolt</button>
+        <span class="vlsep"></span>
+        <input type="text" name="name" id="name" placeholder="Termék megnevezése">
+        <input type="text" name="price" id="price" placeholder="Termék ára">
+        <button id="newproduct">Mentés</button>
+
+        <span class="vlsep"></span>
+
+        <input type="text" name="filterar" id="filterar" placeholder="Min. ár">
+        <button id="filter">&#128270;</button>
+
+        <span class="vlsep"></span>
+        <button id="cart">&#128722;<span>0</span></button>
+
+    </div>
+
+    <div class="container" id="products">
+        <div class="bg-container"></div>
+    </div>
+
+    <script src="script.js" type="module"></script>
+
+</body>
+
+</html>

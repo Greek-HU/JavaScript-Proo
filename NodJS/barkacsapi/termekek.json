@@ -1,0 +1,20 @@
+[{
+    "name": "Betonkavaró",
+    "price": "62000",
+    "img": "img/betonkevero.jpg"
+}, {
+    "name": "Sarokcsiszolo 115",
+    "price": "14000",
+    "img": "img/sarokcsiszolo.png"
+}, {
+    "name": "Véső 20mm",
+    "price": "2000",
+    "img": "img/veso.jpg"
+}, {
+    "name": "Gyalu 45mm",
+    "price": "4500"
+}, {
+    "name": "Kalapács",
+    "price": "1500",
+    "img": "img/kalapacs.jpg"
+}]
