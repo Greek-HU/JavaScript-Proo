@@ -36,7 +36,19 @@ http.createServer((request, response)=>{
                 response.end();
             });
             break;
-
+        /*case request.method == "GET" && request.url == "/":
+            
+            fs.readFile('/termekek.json', (err, data), ()=>{
+                const prod = JSON.parse(data);
+                function createId(){
+                    for (let i = 0; i<prod.length;i++){
+                                    prod[i].id = i+1;
+                        }}
+                fs.writeFile('/termekek.json', JSON.stringify(prod), ()=>{
+                    response.end(JSON.stringify(prod));
+                });
+            }); 
+            break;*/
         default:
             let ext = path.extname(request.url).slice(1);
             let mimetype = MIME.type(ext);

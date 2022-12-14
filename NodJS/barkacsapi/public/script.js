@@ -6,7 +6,7 @@ const $ce = el => document.querySelector(el);
 
 var PRODUCTS = [];
 var productTPL = p => `
-    <div class="product">
+    <div class="product" id="prod-${p.id}" data-id="${p.id}" data-name="${p.name}">
         <div class="inner-ct">
             <div class="pimage">
                 <img src="${p.img || "img/noimage.jpg"}">
@@ -28,11 +28,25 @@ function renderProd(prodList){
         productsString += productTPL(product);
 
     productsCt.innerHTML = productsString;
+
+    document.querySelectorAll('.product').forEach(productBox => {
+        const product = PRODUCTS.find(p => p.id == productBox.dataset.id);
+        productBox.querySelector('.cartlink').onclick = function(){
+            console.log('to cart: ', product);
+        }
+        productBox.querySelector('.dellink').onclick = function(){
+            console.log('edit: ', product.name);
+        }
+        productBox.querySelector('.editlink').onclick = function(){
+            console.log('delete: 1', product.name);
+        }
+    });
 }
 
 $s("#get-products").onclick = function(){
     request.get("/products", function(res){
         PRODUCTS = JSON.parse(res);
+
         renderProd(PRODUCTS);
-    });
+            });
 }

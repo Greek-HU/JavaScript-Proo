@@ -1,90 +1,95 @@
 //Első feladat
-//var n = prompt("Kérek egy páratlan számot")
-var nNumer = parseInt(n);
-var nOdd = [];
-//nNumer % 2 == 0 ? n = prompt("Kérek egy páratlan számot") : nOdd.push(nNumer);
-if (nNumer % 2 == 0){
-    //n = prompt("Kérek egy páratlan számot");
-}else{ 
-    nOdd.push(nNumer);
+/*function elsoNParatlan(){
+    let n = parseInt(prompt('Páratlan számok darabszáma: '));
+    let sum = 0;
+    for(let i = 1; i < n*2; i += 2)
+        sum += i;
+    return sum;
 }
-console.log(nOdd);
-
+console.log(elsoNParatlan());*/
 //Második feladat
-function masodik(nu){
-    var arrayTwoo = [2];
-    arrayTwoo.push(nu);
-    var min = Math.min(arrayTwoo); 
-};
-
-//Harmadik feladat
-//a.
-var n = [];
+function legkisebb(t){
+    let min = t[0];
+    for (let ti of t)
+        if (ti < min)
+            min = ti;
+    return min;
+}
+//vagy
+function legkisebb1(t){
+    return Math.min(...t)
+}
+//Harmadik 
+// a. feladat
 var szoveg = "Botond talált 5 cukorkát. Ebből 2 darabot odaadott Sárának, így maradt neki 3 cukorkája, amiből 1-et Zsuzsának adott. Végül Botondnak 2 cukorkája maradt.";
-var num = szoveg.match(/[0-9]/g);
-n.push(num);
-//b.
-console.log(n);
-//c.
-//console.log(arraTwoo);
-//d.
-var wArray = [];
-var w = szoveg.split(" ");
-wArray.push(w);
-//var map = wArray.map(function(sz, i){
-//    return sz.toUpperCase();});
-var wHTML='';
-for(let i=0; i<w.length; i++){
-    wHTML += `<p>${w[i]}</p>`;
-}
-document.querySelector("#wArray").innerHTML = wHTML;
-//4.feladat
+var szamok = szoveg.match(/[0-9]/g);
+// b. feladat
+console.log('A reguláris kifejezés '+szamok.length+' darab szamot kapott');
+// c. feladat
+szamok = szamok.map(n => parseInt(n))
+console.log('A szöveg legkisebb számértéke: ', legkisebb(szamok));
+// d. feladat
+let mondatok = szoveg.split(/\. /);
+mondatok = mondatok.map(m => 
+    m[m.length-1] != '.' ? m+'.' : m);
 
-var most = new Date();
-var old = new Date("2021-11-20");
-let diff = most.getTime() - old.getTime();
-let day = Math.ceil(diff / (1000 * 3600 * 24));
-var spanHTML='';
-for(let i=0; i<wArray.length; i++){
-    spanHTML += 
-    
-    `<span>A dátum óra ${day} nap telt el</span>`;
-    span.style.backgroundColor= "rgb(248, 121, 121)";
-    span.style.color="red";
+const f3 = document.querySelector('#feladatHarom');
+let pString = '';
+for(let mondat of mondatok)
+    pString += `<p>${mondat}</p>`
+f3.innerHTML += pString;
+//4. feladat
+function howManyDays(dataString){
+    var most = new Date();
+    var date = new Date(dataString);
+    return Math.round((most.getTime() - date.getTime()) / (1000*60*60*24));
 }
-document.querySelector("#span").innerHTML = spanHTML;
-//5.feladat
-//6.feladat
-function requestp(url){
-    return new Promise((resolve, reject) => {
-        let xhr = new XMLHttpRequest();
-        xhr.onreadystatechange =function(){
-            if (xhr.readyState == 4 && this.status == 200)
-                resolve(xhr.responseText);
-            else if (this.status >= 300)
-                reject("Hiba");
+const span = document.createElement("span");
+Object.assign(span.style,{
+    color: "red",
+    backgroundColor:"#ffb6b6",
+    padding: "5px 10px",
+    borderRadius: "4px"
+});
+span.innerHTML = "2021 november 20 óta: "+howManyDays("2021-11-20")+" nap telt el."
+document.querySelector('#feladatNegy').appendChild(span);
+//5. feladat
+function createGrid(n, m, sel){
+    const rowTpl = row => ` <div class="prow">${row}</div>`
+    const cellTpl = (ind, css = "") => ` <div class="pcell" ${css}>${ind}</div>`
+
+    let rows = "", cellindex = 0, cssName = "", cells = "";
+    for(let i = 0; i < n; i++){
+        cells = "";
+        for(let j = 0; j < m; j++){
+            cellindex = ( ( n * i ) + j ) + 1;
+            cssName = ( i + j ) % 2 != 0 ? "pblack" : "";
+            cells += cellTpl(cellindex, cssName);
         }
-        xhr.open("GET", url);
-        xhr.send();
-    });
+        rows += rowTpl(cells);
+    }
+    const gridDiv = document.createElement("div");
+    gridDiv.classList.add("pgrid");
+    gridDiv.innerHTML = rows;
+    document.querySelector(sel).appendChild(gridDiv);
 }
-var todoTableTPL = t => `
-        <div class="row">
-            <div class="cell">${t.title}</div>
-            <div class="cell">${t.completed}</div>
-        </div>
-        
-`
-document.querySelector("#load").onclick = function(){
-requestp("https://jsonplaceholder.typicode.com/todos")
-.then(function(res){
-    var todo = JSON.parse(res);
-    let sel = document.querySelector("#comp");
-            sel.innerHTML = "";
-                for(let t of todo)
-                    sel.innerHTML += todoTableTPL(t);
-
-}).catch(function(res){
-    console.log(res);
-})}
-
+createGrid(8, 8, "#feladatOt");
+//6.feladat
+function request(url, cbFn){
+    let xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function(){
+        if (xhr.readyState == 4 && xhr.status == 200)
+            cbFn(xhr.responseText);
+    }
+    xhr.open("GET", url);
+    xhr.send();
+}
+const f6 = document.querySelector("#feladatHat");
+request("https://jsonplaceholder.typicode.com/todos", res => {
+    let toDos =JSON.parse(res);
+    //let filteredToDos = 
+    toDos.filter(td => !td.completed).forEach(element => {
+        f6.innerHTML += `<li>${element.title}</li>`
+    });
+    //console.log(filteredToDos);
+})
