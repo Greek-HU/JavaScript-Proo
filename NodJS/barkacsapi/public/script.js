@@ -32,7 +32,7 @@ function renderProd(prodList){
     document.querySelectorAll('.product').forEach(productBox => {
         const product = PRODUCTS.find(p => p.id == productBox.dataset.id);
         productBox.querySelector('.cartlink').onclick = function(){
-            console.log('to cart: ', product);
+            console.log('to cart: ', product.name);
         }
         productBox.querySelector('.dellink').onclick = function(){
             console.log('edit: ', product.name);

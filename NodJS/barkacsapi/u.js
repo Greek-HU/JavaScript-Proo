@@ -6,7 +6,7 @@ const filePath = path.join(__dirname, 'termekek.json');
 fs.readFile(filePath, function(err, text){
     let products = JSON.parse(text); 
 
-    for (let prod of products){ 
+    for (let prod of products){
         let dt = new Date().getTime();
         if (!prod.id)
             prod.id = dt + "-" + (Math.floor( Math.random()*dt ) + 452123654);
