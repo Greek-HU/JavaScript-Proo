@@ -55,8 +55,8 @@ span.innerHTML = "2021 november 20 óta: "+howManyDays("2021-11-20")+" nap telt 
 document.querySelector('#feladatNegy').appendChild(span);
 //5. feladat
 function createGrid(n, m, sel){
-    const rowTpl = row => ` <div class="prow">${row}</div>`
-    const cellTpl = (ind, css = "") => ` <div class="pcell" ${css}>${ind}</div>`
+    const rowTpl = row => `<div class="prow">${row}</div>`;
+    const cellTpl = (ind, css = "") => `<div class="pcell ${css}">${ind}</div>`;
 
     let rows = "", cellindex = 0, cssName = "", cells = "";
     for(let i = 0; i < n; i++){

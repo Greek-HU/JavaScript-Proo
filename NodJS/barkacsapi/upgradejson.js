@@ -1,10 +1,19 @@
+/*
+    - Beolvassuk a termekek.json állományt
+        - A beolvasott szovegből ki kell nyerjük a JSON-t
+        - Vegigiteralunk a termekeken
+            - minden termek kap egy egyedi azonosítót vagyis ID-t
+            - a price mezőn típuskonverziót hajtunk végre
+        - a modositott JSON-t visszaírjuk a termekek.json fájlba
+*/
+
 const fs = require('fs');
 const path = require('path');
 
 const filePath = path.join(__dirname, 'termekek.json');
 
 fs.readFile(filePath, function(err, text){
-    let products = JSON.parse(text); 
+    let products = JSON.parse(text); //- a szöveget alakítja JSON struktúrává.
 
     for (let prod of products){ 
         let dt = new Date().getTime();

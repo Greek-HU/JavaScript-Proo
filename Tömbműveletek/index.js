@@ -61,7 +61,7 @@ var pop = kosar.pop();
 var con = kosar.concat([1, 2, 3]);
 //console.log(kosar);
 
-//  Array.join(separatorString) - Összefűzi  a tömb elemeit a spratarorString-el elválasztva
+//  Array.join(separatorString) - Összefűzi  a tömb elemeit a sepratarorString-el elválasztva
 
 var sepStr = kosar.join(", ");
 //console.log(kosar);

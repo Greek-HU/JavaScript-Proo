@@ -1,7 +1,7 @@
 import { request } from "./js/req.mod.js";
 
 const $s = s => document.querySelector(s);
-const $sAll = s => document.querySelector(s);
+const $sAll = sa => document.querySelector(sa);
 const $ce = el => document.querySelector(el);
 
 var PRODUCTS = [];

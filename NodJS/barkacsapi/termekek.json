@@ -1,1 +1,31 @@
-[{"name":"Betonkavaró","price":62000,"img":"img/betonkevero.jpg","id":"1671047133266-1624424363208"},{"name":"Sarokcsiszolo 115","price":14000,"img":"img/sarokcsiszolo.png","id":"1671047133266-262946333800"},{"name":"Véső 20mm","price":2000,"img":"img/veso.jpg","id":"1671047133266-734290763860"},{"name":"Gyalu 45mm","price":4500,"id":"1671047133266-104470922143"},{"name":"Kalapács","price":1500,"img":"img/kalapacs.jpg","id":"1671047133266-958380169855"}]
+[
+    {
+        "name": "Betonkavaró",
+        "price": 62000,
+        "img": "img/betonkevero.jpg",
+        "id": "1671047133266-1624424363208"
+    },
+    {
+        "name": "Sarokcsiszolo 115",
+        "price": 14000,
+        "img": "img/sarokcsiszolo.png",
+        "id": "1671047133266-262946333800"
+    },
+    {
+        "name": "Véső 20mm",
+        "price": 2000,
+        "img": "img/veso.jpg",
+        "id": "1671047133266-734290763860"
+    },
+    {
+        "name": "Gyalu 45mm",
+        "price": 4500,
+        "id": "1671047133266-104470922143"
+    },
+    {
+        "name": "Kalapács",
+        "price": 1500,
+        "img": "img/kalapacs.jpg",
+        "id": "1671047133266-958380169855"
+    }
+]
