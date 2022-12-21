@@ -24,9 +24,15 @@ http.createServer((request, response)=>{
         case request.method == "GET" && request.url == "/":
             fs.readFile(__dirname+'/public/index.html', function(err, fileContent){
                 response.writeHead(200, {'Content-type':'text/html; charset=utf8'});
+                let htmlres = fileContent.toString().replace("/*codereplace*/", "var gyumolcs = 'alma';"); 
                 response.write(fileContent);
                 response.end();
             });
+            break;
+        case request.method == "GET" && request.url == "/adatok.js":
+            response.writeHead(200, {'Content-type': 'text/javascript'});
+            response.write("var adatok = "+JSON.stringify(["akarmi.csv", "egymasik.csz"]));
+            response.end();
             break;
 
         case request.method == "GET" && request.url == "/products":
@@ -35,6 +41,99 @@ http.createServer((request, response)=>{
                 response.write(resText);
                 response.end();
             });
+            break;
+        
+            case request.method == "POST" && request.url == '/product':
+
+            var postData = '';
+
+            request.on('data', function(chunk){
+                postData += chunk;
+            });
+
+            request.on('end', function(){
+                const PRODUCT = JSON.parse(postData);
+                let dt = new Date().getTime();
+
+                PRODUCT.img = "img/noimage.jpg";
+                PRODUCT.id = dt + "-" + (Math.floor( Math.random()*dt ) + dt);
+
+                console.log(PRODUCT);
+
+                fs.readFile(__dirname + '/termekek.json', function(err, resText){
+                    
+                    const PRODUCTS = JSON.parse(resText);
+                    PRODUCTS.push(PRODUCT);
+
+                    fs.writeFile(__dirname + '/termekek.json', JSON.stringify(PRODUCTS), function(err){
+                        response.writeHead(200, {'Content-type': 'application/json; charset=utf8'});
+                        response.write(JSON.stringify({message: "OK"}));
+                        response.end();
+                    });
+
+                });
+            }); // END request onend
+
+            break;
+            case request.method == "POST" && request.url == '/editproduct':
+
+            var postData = '';
+
+            request.on('data', function(chunk){
+                postData += chunk;
+            });
+
+            request.on('end', function(){
+                const PRODUCT = JSON.parse(postData);
+
+                console.log(PRODUCT);
+
+                fs.readFile(__dirname + '/termekek.json', function(err, resText){
+                    
+                    const PRODUCTS = JSON.parse(resText);
+
+                    let editedProduct = PRODUCTS.find(p => p.id == PRODUCT.id);
+                        editedProduct.name = PRODUCT.name;
+                        editedProduct.price = PRODUCT.price;
+
+                    fs.writeFile(__dirname + '/termekek.json', JSON.stringify(PRODUCTS), function(err){
+                        response.writeHead(200, {'Content-type': 'application/json; charset=utf8'});
+                        response.write(JSON.stringify({message: "OK"}));
+                        response.end();
+                    });
+
+                });
+            }); // END request onend
+
+            break;
+
+            case request.method == "DELETE" && reqPath[0] == 'product':
+
+            const productId = reqPath[1];
+
+            //console.log(productId);
+
+            fs.readFile(__dirname + '/termekek.json', function(err, fileContent){
+
+                const PRODUCTS = JSON.parse(fileContent);
+
+                var deletedIndex = PRODUCTS.findIndex( p => p.id == productId );
+
+                if (deletedIndex > -1){
+                    PRODUCTS.splice(deletedIndex, 1);
+                    fs.writeFile(__dirname + '/termekek.json', JSON.stringify(PRODUCTS), function(err){
+                        response.writeHead(200, {'Content-type': 'application/json; charset=utf8'});
+                        response.write(JSON.stringify({message: "A termek sikeresen torolve"}));
+                        response.end();
+                    });
+                } else{
+                    response.writeHead(200, {'Content-type': 'application/json; charset=utf8'});
+                    response.write(JSON.stringify({message: "Sajnaljuk, de ilyen termek nincs az adatbazisban"}));
+                    response.end();
+                }
+
+            });
+
             break;
         
         default:
@@ -53,16 +152,4 @@ http.createServer((request, response)=>{
             })
     }
 }).listen(3000);
-/*
-    Házi feladat, upgrade.js
     
-       - Minden termékhez generálni egyedi id.-t
-       - Minden terméknek legyen number a price kulcsa
-
-            Beolvasod a temekek.json álományt
-            Átalakítjuk a fileContent-et js számára is értelmezhető a struktúrává
-            végig iterálunk a tömbön
-                - a termékhez id-t adunk
-                -price mezőt num tipusuvá alakítjuk
-            az eredmenyt visszaírjuk
- */
